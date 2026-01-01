@@ -1,0 +1,26 @@
+# Environment & secrets
+.env
+.env.*
+*.env
+
+# CKAN secrets
+who.ini
+*.ini
+
+# Docker volumes (never commit data)
+**/volumes/
+**/storage/
+**/pg_data/
+**/solr_data/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Archives
+*.tar.gz
