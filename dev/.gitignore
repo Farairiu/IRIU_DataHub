@@ -8,3 +8,7 @@ _solr/schema.xml
 _src/*
 local/*
 .env
+
+# Keep src extensions tracked (except for .placeholder)
+!src/
+!src/**

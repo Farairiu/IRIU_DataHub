@@ -1,0 +1,44 @@
+{% ckan_extends %}
+
+{% block footer_content %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>{{ _("IRIU DataHub") }}</h4>
+        <p>{{ _("Your centralized platform for discovering, sharing, and managing research data.") }}</p>
+      </div>
+      <div class="col-md-4">
+        <h4>{{ _("Quick Links") }}</h4>
+        <ul class="footer-links">
+          <li><a href="{{ h.url_for('dataset.search') }}">{{ _("Datasets") }}</a></li>
+          <li><a href="{{ h.url_for('organization.index') }}">{{ _("Organizations") }}</a></li>
+          <li><a href="{{ h.url_for('group.index') }}">{{ _("Groups") }}</a></li>
+          <li><a href="{{ h.url_for('home.about') }}">{{ _("About") }}</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h4>{{ _("Connect") }}</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:info@iriu.ca"><i class="fa fa-envelope"></i> {{ _("Contact Us") }}</a></li>
+          <li><a href="https://github.com/Farairiu/IRIU_DataHub" target="_blank"><i class="fa fa-github"></i> {{ _("GitHub") }}</a></li>
+          <li><a href="/api"><i class="fa fa-code"></i> {{ _("API") }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-muted">
+          &copy; {{ h.date_str_to_datetime(h.get_site_statistics().package_update_since or '').year if h.get_site_statistics().package_update_since else '2024' }} {{ _("IRIU Team. All rights reserved.") }}
+        </p>
+      </div>
+      <div class="col-md-6 text-right">
+        <p class="text-muted">
+          {{ _("Powered by") }} <a href="https://ckan.org" target="_blank">CKAN</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}

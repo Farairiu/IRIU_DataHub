@@ -1,0 +1,8 @@
+# IRIU Theme Assets Configuration
+
+iriu-theme-css:
+  output: ckanext-iriu-theme/%(version)s_iriu-theme.css
+  contents:
+    - iriu-theme.css
+  extra:
+    preload: true

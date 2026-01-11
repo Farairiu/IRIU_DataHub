@@ -1,0 +1,603 @@
+/*
+ * IRIU DataHub Custom Theme
+ * A modern, clean theme for CKAN-based data portal
+ */
+
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
+:root {
+    /* Primary Colors */
+    --iriu-primary: #1a5f7a;
+    --iriu-primary-dark: #134b61;
+    --iriu-primary-light: #2d7a9a;
+
+    /* Secondary Colors */
+    --iriu-secondary: #57c5b6;
+    --iriu-secondary-dark: #3aa396;
+    --iriu-secondary-light: #7dd8cc;
+
+    /* Accent Colors */
+    --iriu-accent: #159895;
+    --iriu-accent-dark: #0f7573;
+    --iriu-accent-light: #1fb5b2;
+
+    /* Neutral Colors */
+    --iriu-white: #ffffff;
+    --iriu-gray-100: #f8f9fa;
+    --iriu-gray-200: #e9ecef;
+    --iriu-gray-300: #dee2e6;
+    --iriu-gray-400: #ced4da;
+    --iriu-gray-500: #adb5bd;
+    --iriu-gray-600: #6c757d;
+    --iriu-gray-700: #495057;
+    --iriu-gray-800: #343a40;
+    --iriu-gray-900: #212529;
+
+    /* Status Colors */
+    --iriu-success: #28a745;
+    --iriu-warning: #ffc107;
+    --iriu-danger: #dc3545;
+    --iriu-info: #17a2b8;
+
+    /* Shadows */
+    --iriu-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --iriu-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --iriu-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    /* Border Radius */
+    --iriu-radius-sm: 4px;
+    --iriu-radius-md: 8px;
+    --iriu-radius-lg: 12px;
+
+    /* Transitions */
+    --iriu-transition: all 0.3s ease;
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+body {
+    background-color: var(--iriu-gray-100);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============================================
+   Masthead / Navigation
+   ============================================ */
+.masthead {
+    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-primary-dark) 100%);
+    border-bottom: 3px solid var(--iriu-secondary);
+    box-shadow: var(--iriu-shadow-md);
+}
+
+.masthead .navigation .nav-pills > li > a {
+    color: var(--iriu-white);
+    font-weight: 500;
+    transition: var(--iriu-transition);
+    border-radius: var(--iriu-radius-sm);
+}
+
+.masthead .navigation .nav-pills > li > a:hover,
+.masthead .navigation .nav-pills > li > a:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--iriu-white);
+}
+
+.masthead .navigation .nav-pills > li.active > a {
+    background-color: var(--iriu-secondary);
+    color: var(--iriu-primary-dark);
+}
+
+/* Site Logo */
+.masthead .logo img,
+.site-logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Account Menu */
+.account-masthead {
+    background-color: var(--iriu-primary-dark);
+    border-bottom: none;
+}
+
+.account-masthead .account ul li a {
+    color: var(--iriu-gray-300);
+}
+
+.account-masthead .account ul li a:hover {
+    color: var(--iriu-white);
+}
+
+/* ============================================
+   Hero Section / Homepage
+   ============================================ */
+.homepage .module-search {
+    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-accent) 100%);
+    padding: 60px 0;
+    margin-bottom: 30px;
+}
+
+.homepage .module-search .search-giant input {
+    border-radius: var(--iriu-radius-lg);
+    border: 2px solid var(--iriu-secondary);
+    padding: 15px 25px;
+    font-size: 18px;
+    box-shadow: var(--iriu-shadow-lg);
+}
+
+.homepage .module-search .search-giant input:focus {
+    border-color: var(--iriu-secondary-light);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(87, 197, 182, 0.3);
+}
+
+.hero-unit,
+.jumbotron {
+    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-accent) 100%);
+    color: var(--iriu-white);
+    border-radius: var(--iriu-radius-lg);
+    padding: 50px;
+    margin-bottom: 30px;
+}
+
+.hero-unit h1,
+.jumbotron h1 {
+    color: var(--iriu-white);
+    font-weight: 700;
+}
+
+.hero-unit p,
+.jumbotron p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-primary {
+    background-color: var(--iriu-primary);
+    border-color: var(--iriu-primary);
+    transition: var(--iriu-transition);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--iriu-primary-dark);
+    border-color: var(--iriu-primary-dark);
+    box-shadow: var(--iriu-shadow-sm);
+}
+
+.btn-success {
+    background-color: var(--iriu-secondary);
+    border-color: var(--iriu-secondary);
+    color: var(--iriu-primary-dark);
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background-color: var(--iriu-secondary-dark);
+    border-color: var(--iriu-secondary-dark);
+}
+
+.btn-default {
+    border-color: var(--iriu-gray-300);
+    transition: var(--iriu-transition);
+}
+
+.btn-default:hover {
+    background-color: var(--iriu-gray-200);
+    border-color: var(--iriu-gray-400);
+}
+
+/* Search Button */
+.search-form .btn-search,
+.search-giant .btn {
+    background-color: var(--iriu-secondary);
+    border-color: var(--iriu-secondary);
+    color: var(--iriu-primary-dark);
+    font-weight: 600;
+}
+
+.search-form .btn-search:hover,
+.search-giant .btn:hover {
+    background-color: var(--iriu-secondary-dark);
+    border-color: var(--iriu-secondary-dark);
+}
+
+/* ============================================
+   Cards / Modules
+   ============================================ */
+.module,
+.module-content {
+    background-color: var(--iriu-white);
+    border-radius: var(--iriu-radius-md);
+    box-shadow: var(--iriu-shadow-sm);
+    border: 1px solid var(--iriu-gray-200);
+}
+
+.module-heading {
+    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-primary-light) 100%);
+    color: var(--iriu-white);
+    border-radius: var(--iriu-radius-md) var(--iriu-radius-md) 0 0;
+    padding: 12px 20px;
+    font-weight: 600;
+}
+
+.module-heading .action {
+    color: var(--iriu-secondary-light);
+}
+
+.module-heading .action:hover {
+    color: var(--iriu-white);
+}
+
+/* ============================================
+   Dataset List / Items
+   ============================================ */
+.dataset-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dataset-item {
+    background-color: var(--iriu-white);
+    border: 1px solid var(--iriu-gray-200);
+    border-radius: var(--iriu-radius-md);
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: var(--iriu-transition);
+}
+
+.dataset-item:hover {
+    box-shadow: var(--iriu-shadow-md);
+    border-color: var(--iriu-secondary);
+    transform: translateY(-2px);
+}
+
+.dataset-item .dataset-heading a {
+    color: var(--iriu-primary);
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.dataset-item .dataset-heading a:hover {
+    color: var(--iriu-accent);
+    text-decoration: none;
+}
+
+.dataset-item .notes {
+    color: var(--iriu-gray-700);
+    margin-top: 10px;
+}
+
+/* Dataset Resources */
+.dataset-resources {
+    margin-top: 15px;
+}
+
+.dataset-resources li a {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--iriu-gray-100);
+    border: 1px solid var(--iriu-gray-300);
+    border-radius: var(--iriu-radius-sm);
+    padding: 5px 12px;
+    color: var(--iriu-gray-700);
+    font-size: 0.9em;
+    transition: var(--iriu-transition);
+}
+
+.dataset-resources li a:hover {
+    background-color: var(--iriu-secondary-light);
+    border-color: var(--iriu-secondary);
+    color: var(--iriu-primary-dark);
+    text-decoration: none;
+}
+
+/* ============================================
+   Tags
+   ============================================ */
+.tag-list .tag,
+.tag,
+a.tag {
+    background-color: var(--iriu-accent);
+    color: var(--iriu-white);
+    border-radius: var(--iriu-radius-lg);
+    padding: 4px 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: var(--iriu-transition);
+    display: inline-block;
+    margin: 2px;
+    text-decoration: none;
+}
+
+.tag-list .tag:hover,
+.tag:hover,
+a.tag:hover {
+    background-color: var(--iriu-primary);
+    color: var(--iriu-white);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--iriu-shadow-sm);
+}
+
+/* Tag Count */
+.tag .count {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    padding: 2px 6px;
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+/* ============================================
+   Sidebar
+   ============================================ */
+.secondary {
+    background-color: transparent;
+}
+
+.secondary .module {
+    margin-bottom: 20px;
+}
+
+.secondary .module-heading {
+    font-size: 0.95em;
+}
+
+.secondary .nav-simple > li > a {
+    color: var(--iriu-gray-700);
+    padding: 10px 15px;
+    border-left: 3px solid transparent;
+    transition: var(--iriu-transition);
+}
+
+.secondary .nav-simple > li > a:hover {
+    background-color: var(--iriu-gray-100);
+    border-left-color: var(--iriu-secondary);
+    color: var(--iriu-primary);
+}
+
+.secondary .nav-simple > li.active > a {
+    background-color: var(--iriu-gray-100);
+    border-left-color: var(--iriu-primary);
+    color: var(--iriu-primary);
+    font-weight: 600;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+    background: linear-gradient(135deg, var(--iriu-primary-dark) 0%, var(--iriu-primary) 100%);
+    color: var(--iriu-gray-300);
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 4px solid var(--iriu-secondary);
+}
+
+.site-footer a {
+    color: var(--iriu-secondary-light);
+}
+
+.site-footer a:hover {
+    color: var(--iriu-white);
+    text-decoration: none;
+}
+
+.site-footer .footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.site-footer .footer-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+.form-control {
+    border-radius: var(--iriu-radius-sm);
+    border-color: var(--iriu-gray-300);
+    transition: var(--iriu-transition);
+}
+
+.form-control:focus {
+    border-color: var(--iriu-secondary);
+    box-shadow: 0 0 0 3px rgba(87, 197, 182, 0.2);
+}
+
+/* ============================================
+   Breadcrumbs
+   ============================================ */
+.breadcrumb {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.breadcrumb > li > a {
+    color: var(--iriu-primary);
+}
+
+.breadcrumb > li.active {
+    color: var(--iriu-gray-600);
+}
+
+/* ============================================
+   Pagination
+   ============================================ */
+.pagination > li > a,
+.pagination > li > span {
+    color: var(--iriu-primary);
+    border-color: var(--iriu-gray-300);
+    transition: var(--iriu-transition);
+}
+
+.pagination > li > a:hover {
+    background-color: var(--iriu-secondary-light);
+    border-color: var(--iriu-secondary);
+    color: var(--iriu-primary-dark);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > span {
+    background-color: var(--iriu-primary);
+    border-color: var(--iriu-primary);
+}
+
+/* ============================================
+   Alerts
+   ============================================ */
+.alert-info {
+    background-color: rgba(87, 197, 182, 0.15);
+    border-color: var(--iriu-secondary);
+    color: var(--iriu-primary-dark);
+}
+
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.15);
+    border-color: var(--iriu-success);
+}
+
+/* ============================================
+   Organization / Group Cards
+   ============================================ */
+.media-grid .media-item {
+    background-color: var(--iriu-white);
+    border: 1px solid var(--iriu-gray-200);
+    border-radius: var(--iriu-radius-md);
+    transition: var(--iriu-transition);
+    padding: 20px;
+}
+
+.media-grid .media-item:hover {
+    box-shadow: var(--iriu-shadow-md);
+    border-color: var(--iriu-secondary);
+}
+
+.media-grid .media-item .media-heading a {
+    color: var(--iriu-primary);
+    font-weight: 600;
+}
+
+.media-grid .media-item .media-heading a:hover {
+    color: var(--iriu-accent);
+}
+
+/* ============================================
+   Resource View
+   ============================================ */
+.resource-view .module-heading {
+    background: var(--iriu-primary);
+}
+
+.resource-actions .btn-group .btn {
+    border-color: var(--iriu-gray-300);
+}
+
+/* ============================================
+   Activity Stream
+   ============================================ */
+.activity-stream .item {
+    border-left: 3px solid var(--iriu-secondary);
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.activity-stream .item .actor a {
+    color: var(--iriu-primary);
+    font-weight: 600;
+}
+
+/* ============================================
+   Stats / Counters
+   ============================================ */
+.stats {
+    text-align: center;
+}
+
+.stats .stat {
+    padding: 20px;
+}
+
+.stats .stat-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--iriu-primary);
+}
+
+.stats .stat-label {
+    color: var(--iriu-gray-600);
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    .hero-unit,
+    .jumbotron {
+        padding: 30px 20px;
+    }
+
+    .hero-unit h1,
+    .jumbotron h1 {
+        font-size: 1.8em;
+    }
+
+    .homepage .module-search {
+        padding: 40px 15px;
+    }
+
+    .masthead .navigation {
+        padding: 10px 0;
+    }
+}
+
+/* ============================================
+   Custom Animations
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dataset-item,
+.media-item {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+    .masthead,
+    .account-masthead,
+    .site-footer,
+    .toolbar {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .module {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}

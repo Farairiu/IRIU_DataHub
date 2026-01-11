@@ -1,0 +1,19 @@
+{% set tags = h.get_facet_items_dict('tags', limit=20) %}
+
+<div class="tag-cloud">
+  {% if tags %}
+    <ul class="tag-list">
+      {% for tag in tags %}
+        <li>
+          <a class="tag" href="{{ h.url_for('dataset.search', tags=tag.name) }}"
+             title="{{ tag.count }} {{ _('datasets') }}">
+            {{ tag.display_name }}
+            <span class="count">{{ tag.count }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-muted">{{ _("No tags available yet.") }}</p>
+  {% endif %}
+</div>

@@ -1,0 +1,4 @@
+include README.md
+recursive-include ckanext/iriu_theme/templates *
+recursive-include ckanext/iriu_theme/public *
+recursive-include ckanext/iriu_theme/fanstatic *

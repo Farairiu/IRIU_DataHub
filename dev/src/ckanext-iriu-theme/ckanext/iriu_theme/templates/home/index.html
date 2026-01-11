@@ -1,0 +1,68 @@
+{% ckan_extends %}
+
+{% block subtitle %}{{ _("Welcome") }}{% endblock %}
+
+{% block maintag %}
+<div role="main" class="homepage">
+{% endblock %}
+
+{% block primary_content %}
+<div class="module-content box">
+  <header class="hero-unit">
+    <h1>{{ _("Welcome to IRIU DataHub") }}</h1>
+    <p class="lead">
+      {{ _("Your centralized platform for discovering, sharing, and managing research data.") }}
+    </p>
+  </header>
+
+  <section class="homepage-search">
+    {% snippet 'home/snippets/search.html' %}
+  </section>
+
+  <section class="homepage-stats">
+    <div class="row stats">
+      <div class="col-md-4">
+        <div class="stat">
+          <span class="stat-value">{{ h.get_site_statistics().dataset_count }}</span>
+          <span class="stat-label">{{ _("Datasets") }}</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat">
+          <span class="stat-value">{{ h.get_site_statistics().group_count }}</span>
+          <span class="stat-label">{{ _("Groups") }}</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat">
+          <span class="stat-value">{{ h.get_site_statistics().organization_count }}</span>
+          <span class="stat-label">{{ _("Organizations") }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block secondary_content %}
+<div class="module module-narrow">
+  <h2 class="module-heading">
+    <i class="fa fa-info-circle"></i>
+    {{ _("About IRIU DataHub") }}
+  </h2>
+  <div class="module-content">
+    <p>{{ _("IRIU DataHub is a comprehensive open data platform designed to facilitate research collaboration and data sharing.") }}</p>
+    <p><a href="{{ h.url_for('home.about') }}" class="btn btn-default">{{ _("Learn More") }} &raquo;</a></p>
+  </div>
+</div>
+
+<div class="module module-narrow">
+  <h2 class="module-heading">
+    <i class="fa fa-tags"></i>
+    {{ _("Popular Tags") }}
+  </h2>
+  <div class="module-content">
+    {% snippet 'snippets/tag_cloud.html' %}
+  </div>
+</div>
+{% endblock %}

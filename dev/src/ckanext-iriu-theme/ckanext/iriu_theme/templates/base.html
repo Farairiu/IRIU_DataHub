@@ -1,0 +1,11 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+  {% asset 'iriu_theme/iriu-theme-css' %}
+{% endblock %}
+
+{% block meta %}
+  {{ super() }}
+  <meta name="theme-color" content="#1a5f7a">
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _("About") }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('About'), named_route='home.about' %}</li>
+{% endblock %}
+
+{% block primary_content %}
+<article class="module">
+  <div class="module-content">
+    <h1>{{ _("About IRIU DataHub") }}</h1>
+
+    <section class="about-section">
+      <h2><i class="fa fa-bullseye"></i> {{ _("Our Mission") }}</h2>
+      <p>
+        {{ _("IRIU DataHub is dedicated to advancing research and innovation through open data sharing. We provide a secure, accessible, and user-friendly platform for researchers, institutions, and organizations to discover, share, and collaborate on datasets.") }}
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-lightbulb-o"></i> {{ _("What We Offer") }}</h2>
+      <ul class="feature-list">
+        <li>
+          <strong>{{ _("Data Discovery") }}</strong>
+          <p>{{ _("Search and explore a growing collection of datasets across multiple domains and research areas.") }}</p>
+        </li>
+        <li>
+          <strong>{{ _("Secure Sharing") }}</strong>
+          <p>{{ _("Share your datasets with fine-grained access controls and organizational management.") }}</p>
+        </li>
+        <li>
+          <strong>{{ _("Collaboration Tools") }}</strong>
+          <p>{{ _("Work together with groups and organizations to manage and curate data collections.") }}</p>
+        </li>
+        <li>
+          <strong>{{ _("API Access") }}</strong>
+          <p>{{ _("Programmatic access to all datasets through our comprehensive REST API.") }}</p>
+        </li>
+        <li>
+          <strong>{{ _("Data Visualization") }}</strong>
+          <p>{{ _("Built-in viewers for common data formats including CSV, JSON, and more.") }}</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-users"></i> {{ _("Who We Are") }}</h2>
+      <p>
+        {{ _("IRIU DataHub is developed and maintained by the IRIU Team. We are committed to supporting the research community with cutting-edge data management solutions.") }}
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-envelope"></i> {{ _("Contact Us") }}</h2>
+      <p>
+        {{ _("Have questions or need support? We're here to help!") }}
+      </p>
+      <ul class="contact-list">
+        <li><i class="fa fa-envelope"></i> <a href="mailto:info@iriu.ca">info@iriu.ca</a></li>
+        <li><i class="fa fa-github"></i> <a href="https://github.com/Farairiu/IRIU_DataHub" target="_blank">GitHub Repository</a></li>
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-gears"></i> {{ _("Technical Information") }}</h2>
+      <p>
+        {{ _("IRIU DataHub is powered by CKAN, the world's leading open-source data portal platform. CKAN is used by governments and organizations worldwide to publish, share, and work with data.") }}
+      </p>
+      <p>
+        <a href="https://ckan.org" target="_blank" class="btn btn-default">
+          <i class="fa fa-external-link"></i> {{ _("Learn more about CKAN") }}
+        </a>
+      </p>
+    </section>
+  </div>
+</article>
+{% endblock %}
+
+{% block secondary_content %}
+<div class="module module-narrow">
+  <h2 class="module-heading">
+    <i class="fa fa-rocket"></i>
+    {{ _("Quick Links") }}
+  </h2>
+  <div class="module-content">
+    <ul class="nav nav-simple">
+      <li><a href="{{ h.url_for('dataset.search') }}"><i class="fa fa-database"></i> {{ _("Browse Datasets") }}</a></li>
+      <li><a href="{{ h.url_for('organization.index') }}"><i class="fa fa-building"></i> {{ _("Organizations") }}</a></li>
+      <li><a href="{{ h.url_for('group.index') }}"><i class="fa fa-users"></i> {{ _("Groups") }}</a></li>
+      <li><a href="/api"><i class="fa fa-code"></i> {{ _("API Documentation") }}</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="module module-narrow">
+  <h2 class="module-heading">
+    <i class="fa fa-line-chart"></i>
+    {{ _("Platform Stats") }}
+  </h2>
+  <div class="module-content">
+    <ul class="stats-list">
+      <li><strong>{{ h.get_site_statistics().dataset_count }}</strong> {{ _("Datasets") }}</li>
+      <li><strong>{{ h.get_site_statistics().organization_count }}</strong> {{ _("Organizations") }}</li>
+      <li><strong>{{ h.get_site_statistics().group_count }}</strong> {{ _("Groups") }}</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
