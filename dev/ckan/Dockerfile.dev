@@ -35,9 +35,8 @@ FROM ckan/ckan-dev:2.11
 # to get them mounted in this image at runtime
 
 ### IRIU Custom Theme ###
-# Copy and install the theme extension during build
-COPY --chown=ckan:ckan-sys src/ckanext-iriu-theme /srv/app/src_extensions/ckanext-iriu-theme
-RUN pip3 install /srv/app/src_extensions/ckanext-iriu-theme
+# Install the theme extension from GitHub during build
+RUN pip3 install git+https://github.com/Farairiu/IRIU_DataHub.git@dev/ui-customization#subdirectory=dev/src/ckanext-iriu-theme
 
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
