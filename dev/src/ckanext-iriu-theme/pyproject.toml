@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ckanext-iriu-theme"
+version = "1.0.0"
+description = "Custom theme for IRIU DataHub"
+readme = "README.md"
+license = {text = "AGPL-3.0"}
+authors = [
+    {name = "IRIU Team", email = "info@iriu.ca"}
+]
+keywords = ["CKAN", "theme", "IRIU", "DataHub"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.8"
+
+[project.entry-points."ckan.plugins"]
+iriu_theme = "ckanext.iriu_theme.plugin:IriuThemePlugin"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ckanext*"]
+
+[tool.setuptools.package-data]
+"*" = ["templates/*", "templates/**/*", "public/*", "public/**/*", "fanstatic/*"]
