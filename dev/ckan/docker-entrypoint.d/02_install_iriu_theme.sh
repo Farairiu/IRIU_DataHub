@@ -6,7 +6,8 @@ THEME_DIR="/srv/app/src_extensions/ckanext-iriu-theme"
 
 if [ -d "$THEME_DIR" ]; then
     echo "Installing IRIU Theme extension..."
-    pip3 install -e "$THEME_DIR"
+    # Install in non-editable mode to avoid permission issues with mounted volumes
+    pip3 install "$THEME_DIR" --no-deps
     echo "IRIU Theme extension installed successfully."
 else
     echo "IRIU Theme extension directory not found at $THEME_DIR"
