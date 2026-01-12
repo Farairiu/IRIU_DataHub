@@ -6,63 +6,130 @@
 <div role="main" class="homepage">
 {% endblock %}
 
-{% block primary_content %}
-<div class="module-content box">
-  <header class="hero-unit">
-    <h1>{{ _("Welcome to IRIU DataHub") }}</h1>
-    <p class="lead">
-      {{ _("Your centralized platform for discovering, sharing, and managing research data.") }}
-    </p>
-  </header>
+{% block toolbar %}{% endblock %}
 
-  <section class="homepage-search">
-    {% snippet 'home/snippets/search.html' %}
-  </section>
-
-  <section class="homepage-stats">
-    <div class="row stats">
-      <div class="col-md-4">
-        <div class="stat">
-          <span class="stat-value">{{ h.get_site_statistics().dataset_count }}</span>
-          <span class="stat-label">{{ _("Datasets") }}</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="stat">
-          <span class="stat-value">{{ h.get_site_statistics().group_count }}</span>
-          <span class="stat-label">{{ _("Groups") }}</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="stat">
-          <span class="stat-value">{{ h.get_site_statistics().organization_count }}</span>
-          <span class="stat-label">{{ _("Organizations") }}</span>
+{% block content %}
+  {# Hero Search Section #}
+  <div class="module-search">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="heading">{{ _("Explore Open Data for Urban Resilience") }}</h1>
+          <p>{{ _("Discover datasets from municipalities, researchers, and partners across Quebec") }}</p>
+          {% snippet 'home/snippets/search.html' %}
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  {# Stats Section #}
+  <div class="container">
+    <div class="row" style="margin-top: -40px; position: relative; z-index: 10;">
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="stat-value">{{ h.get_site_statistics().dataset_count }}</div>
+          <div class="stat-label">{{ _("Datasets") }}</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="stat-value">{{ h.get_site_statistics().organization_count }}</div>
+          <div class="stat-label">{{ _("Organizations") }}</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class="stat-value">{{ h.get_site_statistics().group_count }}</div>
+          <div class="stat-label">{{ _("Thematic Groups") }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# Featured Datasets Section #}
+  <div class="featured-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>{{ _("Featured Datasets") }}</h2>
+          <p class="section-subtitle">{{ _("Explore our latest data collections supporting urban resilience and municipal innovation") }}</p>
+        </div>
+      </div>
+      <div class="row">
+        {% set search_results = h.get_action('package_search', {'rows': 4, 'sort': 'metadata_modified desc'}) %}
+        {% if search_results and search_results.results %}
+          {% for dataset in search_results.results %}
+          <div class="col-md-6 col-lg-3">
+            <div class="dataset-item" style="height: 100%;">
+              <h4 class="dataset-heading"><a href="{{ h.url_for('dataset.read', id=dataset.name) }}">{{ dataset.title }}</a></h4>
+              <p class="notes">{{ h.truncate(dataset.notes or _('No description available'), 100) }}</p>
+              {% if dataset.organization %}
+              <span class="tag" style="font-size: 11px;">{{ dataset.organization.title }}</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12 text-center">
+            <div class="module-content" style="padding: 40px;">
+              <i class="fa fa-database" style="font-size: 48px; color: #cbd5e1; margin-bottom: 20px;"></i>
+              <p style="color: #64748b; font-size: 16px;">{{ _("No datasets available yet. Be the first to contribute!") }}</p>
+              <a href="{{ h.url_for('dataset.new') }}" class="btn btn-success" style="margin-top: 10px;">
+                <i class="fa fa-plus"></i> {{ _("Add Dataset") }}
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12 text-center">
+          <a href="{{ h.url_for('dataset.search') }}" class="btn btn-primary btn-lg">
+            <i class="fa fa-search"></i> {{ _("Browse All Datasets") }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# About Section #}
+  <div class="container" style="padding: 60px 0;">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 style="color: #1e2a4a; font-weight: 700; margin-bottom: 20px;">{{ _("About IRIU DataHub") }}</h2>
+        <p style="font-size: 16px; line-height: 1.8; color: #475569;">
+          {{ _("IRIU DataHub is the open data platform of L'Institut de la Resilience et de l'Innovation Urbaine. We support municipalities, researchers, and partners in discovering, sharing, and collaborating on datasets that drive urban resilience and sustainable development.") }}
+        </p>
+        <p style="font-size: 16px; line-height: 1.8; color: #475569;">
+          {{ _("Our platform enables sovereign data governance with frugal, responsible approaches that respect local autonomy while fostering collaboration across Quebec's municipal ecosystem.") }}
+        </p>
+        <a href="{{ h.url_for('home.about') }}" class="btn btn-default" style="margin-top: 10px;">
+          {{ _("Learn More") }} <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <div class="services-grid">
+          <div class="service-card">
+            <h4><i class="fa fa-shield" style="color: #5bbfb3;"></i> {{ _("Data Sovereignty") }}</h4>
+            <p>{{ _("Your data stays under your control with federated governance models.") }}</p>
+          </div>
+          <div class="service-card">
+            <h4><i class="fa fa-users" style="color: #5bbfb3;"></i> {{ _("Collaboration") }}</h4>
+            <p>{{ _("Connect with municipalities, researchers, and partners across Quebec.") }}</p>
+          </div>
+          <div class="service-card">
+            <h4><i class="fa fa-lightbulb-o" style="color: #5bbfb3;"></i> {{ _("AI-Ready") }}</h4>
+            <p>{{ _("Datasets structured for ethical AI applications in urban planning.") }}</p>
+          </div>
+          <div class="service-card">
+            <h4><i class="fa fa-code" style="color: #5bbfb3;"></i> {{ _("Open APIs") }}</h4>
+            <p>{{ _("Full programmatic access through comprehensive REST APIs.") }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 {% endblock %}
 
-{% block secondary_content %}
-<div class="module module-narrow">
-  <h2 class="module-heading">
-    <i class="fa fa-info-circle"></i>
-    {{ _("About IRIU DataHub") }}
-  </h2>
-  <div class="module-content">
-    <p>{{ _("IRIU DataHub is a comprehensive open data platform designed to facilitate research collaboration and data sharing.") }}</p>
-    <p><a href="{{ h.url_for('home.about') }}" class="btn btn-default">{{ _("Learn More") }} &raquo;</a></p>
-  </div>
-</div>
-
-<div class="module module-narrow">
-  <h2 class="module-heading">
-    <i class="fa fa-tags"></i>
-    {{ _("Popular Tags") }}
-  </h2>
-  <div class="module-content">
-    {% snippet 'snippets/tag_cloud.html' %}
-  </div>
-</div>
-{% endblock %}
+{% block secondary %}{% endblock %}

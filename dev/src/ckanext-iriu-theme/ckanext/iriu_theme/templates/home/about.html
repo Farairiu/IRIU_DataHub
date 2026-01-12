@@ -12,52 +12,82 @@
     <h1>{{ _("About IRIU DataHub") }}</h1>
 
     <section class="about-section">
-      <h2><i class="fa fa-bullseye"></i> {{ _("Our Mission") }}</h2>
+      <h2><i class="fa fa-building"></i> {{ _("Institut de la Resilience et de l'Innovation Urbaine") }}</h2>
       <p>
-        {{ _("IRIU DataHub is dedicated to advancing research and innovation through open data sharing. We provide a secure, accessible, and user-friendly platform for researchers, institutions, and organizations to discover, share, and collaborate on datasets.") }}
+        {{ _("L'Institut de la Resilience et de l'Innovation Urbaine (IRIU) acts as a catalyst for local community resilience. We accompany local governments and community actors in strengthening organizational capacity during crises and beyond.") }}
+      </p>
+      <p>
+        {{ _("Our mission is to give municipalities and communities the space and time to plan tomorrow, through strategic planning, decision-support tools, and data governance solutions.") }}
       </p>
     </section>
 
     <section class="about-section">
-      <h2><i class="fa fa-lightbulb-o"></i> {{ _("What We Offer") }}</h2>
+      <h2><i class="fa fa-database"></i> {{ _("About This Platform") }}</h2>
+      <p>
+        {{ _("IRIU DataHub is our open data platform designed to support municipalities, researchers, and partners in discovering, sharing, and collaborating on datasets. Built on CKAN, the world's leading open-source data management system, this platform enables:") }}
+      </p>
       <ul class="feature-list">
         <li>
-          <strong>{{ _("Data Discovery") }}</strong>
-          <p>{{ _("Search and explore a growing collection of datasets across multiple domains and research areas.") }}</p>
+          <strong>{{ _("Sovereign Data Governance") }}</strong>
+          <p>{{ _("Federated data management with frugal, responsible approaches that respect local autonomy and privacy.") }}</p>
         </li>
         <li>
-          <strong>{{ _("Secure Sharing") }}</strong>
-          <p>{{ _("Share your datasets with fine-grained access controls and organizational management.") }}</p>
+          <strong>{{ _("Municipal Collaboration") }}</strong>
+          <p>{{ _("Connect cities, researchers, and partners through shared data resources and collaborative tools.") }}</p>
         </li>
         <li>
-          <strong>{{ _("Collaboration Tools") }}</strong>
-          <p>{{ _("Work together with groups and organizations to manage and curate data collections.") }}</p>
+          <strong>{{ _("AI-Ready Infrastructure") }}</strong>
+          <p>{{ _("Datasets structured and documented to support ethical AI applications for urban resilience.") }}</p>
         </li>
         <li>
-          <strong>{{ _("API Access") }}</strong>
-          <p>{{ _("Programmatic access to all datasets through our comprehensive REST API.") }}</p>
-        </li>
-        <li>
-          <strong>{{ _("Data Visualization") }}</strong>
-          <p>{{ _("Built-in viewers for common data formats including CSV, JSON, and more.") }}</p>
+          <strong>{{ _("Open API Access") }}</strong>
+          <p>{{ _("Programmatic access to all public datasets through comprehensive REST APIs.") }}</p>
         </li>
       </ul>
     </section>
 
     <section class="about-section">
-      <h2><i class="fa fa-users"></i> {{ _("Who We Are") }}</h2>
+      <h2><i class="fa fa-flask"></i> {{ _("L'Atelier - Our Services") }}</h2>
+      <p>{{ _("Through L'Atelier (The Workshop), we offer a suite of services to support municipal innovation:") }}</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h4><i class="fa fa-compass"></i> La Boussole</h4>
+          <p>{{ _("Strategic planning guidance for municipal projects and long-term resilience planning.") }}</p>
+        </div>
+        <div class="service-card">
+          <h4><i class="fa fa-lightbulb-o"></i> Le Phare</h4>
+          <p>{{ _("Decision-support tools and responsible AI solutions for evidence-based governance.") }}</p>
+        </div>
+        <div class="service-card">
+          <h4><i class="fa fa-sitemap"></i> Le Pole</h4>
+          <p>{{ _("Data federation and governance frameworks for sovereign data management.") }}</p>
+        </div>
+        <div class="service-card">
+          <h4><i class="fa fa-users"></i> L'Agora</h4>
+          <p>{{ _("Project communities connecting cities, researchers, and innovation partners.") }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-rocket"></i> {{ _("VILLE_IA Initiative") }}</h2>
       <p>
-        {{ _("IRIU DataHub is developed and maintained by the IRIU Team. We are committed to supporting the research community with cutting-edge data management solutions.") }}
+        {{ _("IRIU leads VILLE_IA, Quebec's largest applied AI research program for municipalities. This groundbreaking initiative involves over 30 partners including IVADO, Polytechnique Montreal, and 12 pilot cities, all focused on building climate resilience through ethical AI applications.") }}
+      </p>
+      <p>
+        {{ _("The program develops practical AI tools that help cities better understand climate risks, optimize resource allocation, and make data-driven decisions for sustainable urban development.") }}
       </p>
     </section>
 
     <section class="about-section">
       <h2><i class="fa fa-envelope"></i> {{ _("Contact Us") }}</h2>
       <p>
-        {{ _("Have questions or need support? We're here to help!") }}
+        {{ _("Have questions about our data platform or services? We're here to help!") }}
       </p>
       <ul class="contact-list">
         <li><i class="fa fa-envelope"></i> <a href="mailto:info@iriu.ca">info@iriu.ca</a></li>
+        <li><i class="fa fa-phone"></i> +1 514 970 3343</li>
+        <li><i class="fa fa-globe"></i> <a href="https://www.iriu.ca" target="_blank">www.iriu.ca</a></li>
         <li><i class="fa fa-github"></i> <a href="https://github.com/Farairiu/IRIU_DataHub" target="_blank">GitHub Repository</a></li>
       </ul>
     </section>
@@ -65,7 +95,7 @@
     <section class="about-section">
       <h2><i class="fa fa-gears"></i> {{ _("Technical Information") }}</h2>
       <p>
-        {{ _("IRIU DataHub is powered by CKAN, the world's leading open-source data portal platform. CKAN is used by governments and organizations worldwide to publish, share, and work with data.") }}
+        {{ _("IRIU DataHub is powered by CKAN, the world's leading open-source data portal platform used by governments and organizations worldwide. Our implementation includes custom extensions for bilingual support, enhanced data visualization, and integration with municipal systems.") }}
       </p>
       <p>
         <a href="https://ckan.org" target="_blank" class="btn btn-default">
@@ -80,7 +110,7 @@
 {% block secondary_content %}
 <div class="module module-narrow">
   <h2 class="module-heading">
-    <i class="fa fa-rocket"></i>
+    <i class="fa fa-compass"></i>
     {{ _("Quick Links") }}
   </h2>
   <div class="module-content">
@@ -89,6 +119,7 @@
       <li><a href="{{ h.url_for('organization.index') }}"><i class="fa fa-building"></i> {{ _("Organizations") }}</a></li>
       <li><a href="{{ h.url_for('group.index') }}"><i class="fa fa-users"></i> {{ _("Groups") }}</a></li>
       <li><a href="/api"><i class="fa fa-code"></i> {{ _("API Documentation") }}</a></li>
+      <li><a href="https://www.iriu.ca" target="_blank"><i class="fa fa-external-link"></i> {{ _("IRIU Website") }}</a></li>
     </ul>
   </div>
 </div>
@@ -104,6 +135,18 @@
       <li><strong>{{ h.get_site_statistics().organization_count }}</strong> {{ _("Organizations") }}</li>
       <li><strong>{{ h.get_site_statistics().group_count }}</strong> {{ _("Groups") }}</li>
     </ul>
+  </div>
+</div>
+
+<div class="module module-narrow">
+  <h2 class="module-heading">
+    <i class="fa fa-handshake-o"></i>
+    {{ _("Partners") }}
+  </h2>
+  <div class="module-content">
+    <p style="font-size: 13px; color: #64748b;">
+      {{ _("IRIU collaborates with leading institutions including IVADO, Polytechnique Montreal, and municipalities across Quebec.") }}
+    </p>
   </div>
 </div>
 {% endblock %}

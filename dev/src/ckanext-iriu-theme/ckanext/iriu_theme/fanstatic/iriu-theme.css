@@ -1,109 +1,99 @@
 /*
  * IRIU DataHub Custom Theme
- * A modern, clean theme for CKAN-based data portal
+ * Inspired by Paris Open Data Portal
+ * Brand colors: Navy (#1e2a4a) and Teal (#5bbfb3)
  */
 
 /* ============================================
    CSS Custom Properties (Variables)
    ============================================ */
 :root {
-    /* Primary Colors */
-    --iriu-primary: #1a5f7a;
-    --iriu-primary-dark: #134b61;
-    --iriu-primary-light: #2d7a9a;
+    /* IRIU Brand Colors */
+    --iriu-navy: #1e2a4a;
+    --iriu-navy-dark: #151d35;
+    --iriu-navy-light: #2d3d5c;
 
-    /* Secondary Colors */
-    --iriu-secondary: #57c5b6;
-    --iriu-secondary-dark: #3aa396;
-    --iriu-secondary-light: #7dd8cc;
+    --iriu-teal: #5bbfb3;
+    --iriu-teal-dark: #4aa99e;
+    --iriu-teal-light: #7dd4ca;
 
-    /* Accent Colors */
-    --iriu-accent: #159895;
-    --iriu-accent-dark: #0f7573;
-    --iriu-accent-light: #1fb5b2;
+    /* Extended Palette */
+    --iriu-orange: #e67e22;
+    --iriu-orange-light: #f39c12;
+    --iriu-green: #27ae60;
+    --iriu-green-light: #2ecc71;
 
     /* Neutral Colors */
     --iriu-white: #ffffff;
-    --iriu-gray-100: #f8f9fa;
-    --iriu-gray-200: #e9ecef;
-    --iriu-gray-300: #dee2e6;
-    --iriu-gray-400: #ced4da;
-    --iriu-gray-500: #adb5bd;
-    --iriu-gray-600: #6c757d;
-    --iriu-gray-700: #495057;
-    --iriu-gray-800: #343a40;
-    --iriu-gray-900: #212529;
+    --iriu-gray-50: #f8fafc;
+    --iriu-gray-100: #f1f5f9;
+    --iriu-gray-200: #e2e8f0;
+    --iriu-gray-300: #cbd5e1;
+    --iriu-gray-400: #94a3b8;
+    --iriu-gray-500: #64748b;
+    --iriu-gray-600: #475569;
+    --iriu-gray-700: #334155;
+    --iriu-gray-800: #1e293b;
+    --iriu-gray-900: #0f172a;
 
     /* Status Colors */
-    --iriu-success: #28a745;
-    --iriu-warning: #ffc107;
-    --iriu-danger: #dc3545;
-    --iriu-info: #17a2b8;
+    --iriu-success: #10b981;
+    --iriu-warning: #f59e0b;
+    --iriu-danger: #ef4444;
+    --iriu-info: #3b82f6;
 
-    /* Shadows */
-    --iriu-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-    --iriu-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --iriu-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    /* Shadows - Paris-style subtle */
+    --iriu-shadow-xs: 0 1px 2px rgba(30, 42, 74, 0.05);
+    --iriu-shadow-sm: 0 1px 3px rgba(30, 42, 74, 0.1), 0 1px 2px rgba(30, 42, 74, 0.06);
+    --iriu-shadow-md: 0 4px 6px rgba(30, 42, 74, 0.1), 0 2px 4px rgba(30, 42, 74, 0.06);
+    --iriu-shadow-lg: 0 10px 15px rgba(30, 42, 74, 0.1), 0 4px 6px rgba(30, 42, 74, 0.05);
+    --iriu-shadow-xl: 0 20px 25px rgba(30, 42, 74, 0.1), 0 10px 10px rgba(30, 42, 74, 0.04);
 
-    /* Border Radius */
-    --iriu-radius-sm: 4px;
-    --iriu-radius-md: 8px;
-    --iriu-radius-lg: 12px;
+    /* Border Radius - Modern rounded */
+    --iriu-radius-sm: 6px;
+    --iriu-radius-md: 10px;
+    --iriu-radius-lg: 16px;
+    --iriu-radius-xl: 24px;
 
     /* Transitions */
-    --iriu-transition: all 0.3s ease;
+    --iriu-transition-fast: all 0.15s ease;
+    --iriu-transition: all 0.25s ease;
+    --iriu-transition-slow: all 0.4s ease;
 }
 
 /* ============================================
    Global Styles
    ============================================ */
 body {
-    background-color: var(--iriu-gray-100);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--iriu-gray-50);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--iriu-gray-800);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--iriu-navy);
+    transition: var(--iriu-transition-fast);
+}
+
+a:hover {
+    color: var(--iriu-teal);
+    text-decoration: none;
 }
 
 /* ============================================
-   Masthead / Navigation
+   Account Masthead (Top Bar)
    ============================================ */
-.masthead {
-    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-primary-dark) 100%);
-    border-bottom: 3px solid var(--iriu-secondary);
-    box-shadow: var(--iriu-shadow-md);
-}
-
-.masthead .navigation .nav-pills > li > a {
-    color: var(--iriu-white);
-    font-weight: 500;
-    transition: var(--iriu-transition);
-    border-radius: var(--iriu-radius-sm);
-}
-
-.masthead .navigation .nav-pills > li > a:hover,
-.masthead .navigation .nav-pills > li > a:focus {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: var(--iriu-white);
-}
-
-.masthead .navigation .nav-pills > li.active > a {
-    background-color: var(--iriu-secondary);
-    color: var(--iriu-primary-dark);
-}
-
-/* Site Logo */
-.masthead .logo img,
-.site-logo img {
-    max-height: 50px;
-    width: auto;
-}
-
-/* Account Menu */
 .account-masthead {
-    background-color: var(--iriu-primary-dark);
+    background-color: var(--iriu-navy-dark);
     border-bottom: none;
+    padding: 8px 0;
 }
 
 .account-masthead .account ul li a {
     color: var(--iriu-gray-300);
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .account-masthead .account ul li a:hover {
@@ -111,122 +101,256 @@ body {
 }
 
 /* ============================================
-   Hero Section / Homepage
+   Main Masthead / Navigation
+   ============================================ */
+.masthead {
+    background: var(--iriu-white);
+    border-bottom: 1px solid var(--iriu-gray-200);
+    box-shadow: var(--iriu-shadow-sm);
+    padding: 12px 0;
+}
+
+.masthead .logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+.masthead .navigation .nav-pills > li > a {
+    color: var(--iriu-navy);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: var(--iriu-radius-md);
+    transition: var(--iriu-transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.masthead .navigation .nav-pills > li > a:hover,
+.masthead .navigation .nav-pills > li > a:focus {
+    background-color: var(--iriu-gray-100);
+    color: var(--iriu-teal-dark);
+}
+
+.masthead .navigation .nav-pills > li.active > a {
+    background-color: var(--iriu-navy);
+    color: var(--iriu-white);
+}
+
+/* ============================================
+   Hero Section / Homepage - Paris Style
    ============================================ */
 .homepage .module-search {
-    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-accent) 100%);
-    padding: 60px 0;
+    background: linear-gradient(135deg, var(--iriu-navy) 0%, var(--iriu-navy-light) 50%, var(--iriu-teal-dark) 100%);
+    padding: 80px 0;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.homepage .module-search::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+}
+
+.homepage .module-search .search-giant {
+    position: relative;
+    z-index: 1;
+}
+
+.homepage .module-search h1,
+.homepage .module-search .heading {
+    color: var(--iriu-white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.homepage .module-search p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
     margin-bottom: 30px;
 }
 
 .homepage .module-search .search-giant input {
-    border-radius: var(--iriu-radius-lg);
-    border: 2px solid var(--iriu-secondary);
-    padding: 15px 25px;
-    font-size: 18px;
-    box-shadow: var(--iriu-shadow-lg);
+    border-radius: var(--iriu-radius-xl);
+    border: none;
+    padding: 18px 28px;
+    font-size: 16px;
+    box-shadow: var(--iriu-shadow-xl);
+    width: 100%;
+    max-width: 700px;
 }
 
 .homepage .module-search .search-giant input:focus {
-    border-color: var(--iriu-secondary-light);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(87, 197, 182, 0.3);
+    box-shadow: var(--iriu-shadow-xl), 0 0 0 4px rgba(91, 191, 179, 0.3);
 }
 
-.hero-unit,
-.jumbotron {
-    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-accent) 100%);
-    color: var(--iriu-white);
-    border-radius: var(--iriu-radius-lg);
-    padding: 50px;
-    margin-bottom: 30px;
-}
-
-.hero-unit h1,
-.jumbotron h1 {
-    color: var(--iriu-white);
+.homepage .module-search .search-giant .btn {
+    border-radius: var(--iriu-radius-xl);
+    padding: 18px 32px;
+    background-color: var(--iriu-teal);
+    border: none;
+    color: var(--iriu-navy-dark);
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.hero-unit p,
-.jumbotron p {
-    color: rgba(255, 255, 255, 0.9);
+.homepage .module-search .search-giant .btn:hover {
+    background-color: var(--iriu-teal-light);
+    transform: translateY(-2px);
+    box-shadow: var(--iriu-shadow-lg);
 }
 
 /* ============================================
-   Buttons
+   Stats Section - Paris Style Cards
    ============================================ */
-.btn-primary {
-    background-color: var(--iriu-primary);
-    border-color: var(--iriu-primary);
+.stats-section {
+    background: var(--iriu-white);
+    padding: 60px 0;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-card {
+    background: var(--iriu-white);
+    border-radius: var(--iriu-radius-lg);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--iriu-shadow-md);
+    border: 1px solid var(--iriu-gray-100);
     transition: var(--iriu-transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--iriu-shadow-xl);
+    border-color: var(--iriu-teal);
+}
+
+.stat-card .stat-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--iriu-navy);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-card .stat-label {
+    font-size: 14px;
+    color: var(--iriu-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ============================================
+   Buttons - Paris Style
+   ============================================ */
+.btn {
+    border-radius: var(--iriu-radius-md);
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: var(--iriu-transition-fast);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.btn-primary {
+    background-color: var(--iriu-navy);
+    border-color: var(--iriu-navy);
+    color: var(--iriu-white);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: var(--iriu-primary-dark);
-    border-color: var(--iriu-primary-dark);
-    box-shadow: var(--iriu-shadow-sm);
+    background-color: var(--iriu-navy-dark);
+    border-color: var(--iriu-navy-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--iriu-shadow-md);
 }
 
 .btn-success {
-    background-color: var(--iriu-secondary);
-    border-color: var(--iriu-secondary);
-    color: var(--iriu-primary-dark);
+    background-color: var(--iriu-teal);
+    border-color: var(--iriu-teal);
+    color: var(--iriu-navy-dark);
 }
 
 .btn-success:hover,
 .btn-success:focus {
-    background-color: var(--iriu-secondary-dark);
-    border-color: var(--iriu-secondary-dark);
+    background-color: var(--iriu-teal-dark);
+    border-color: var(--iriu-teal-dark);
 }
 
 .btn-default {
+    background-color: var(--iriu-white);
     border-color: var(--iriu-gray-300);
-    transition: var(--iriu-transition);
+    color: var(--iriu-gray-700);
 }
 
 .btn-default:hover {
-    background-color: var(--iriu-gray-200);
-    border-color: var(--iriu-gray-400);
+    background-color: var(--iriu-gray-50);
+    border-color: var(--iriu-navy);
+    color: var(--iriu-navy);
 }
 
 /* Search Button */
-.search-form .btn-search,
-.search-giant .btn {
-    background-color: var(--iriu-secondary);
-    border-color: var(--iriu-secondary);
-    color: var(--iriu-primary-dark);
-    font-weight: 600;
+.search-form .btn-search {
+    background-color: var(--iriu-teal);
+    border-color: var(--iriu-teal);
+    color: var(--iriu-navy-dark);
+    font-weight: 700;
 }
 
-.search-form .btn-search:hover,
-.search-giant .btn:hover {
-    background-color: var(--iriu-secondary-dark);
-    border-color: var(--iriu-secondary-dark);
+.search-form .btn-search:hover {
+    background-color: var(--iriu-teal-dark);
 }
 
 /* ============================================
-   Cards / Modules
+   Cards / Modules - Paris Style
    ============================================ */
-.module,
-.module-content {
+.module {
     background-color: var(--iriu-white);
-    border-radius: var(--iriu-radius-md);
+    border-radius: var(--iriu-radius-lg);
     box-shadow: var(--iriu-shadow-sm);
     border: 1px solid var(--iriu-gray-200);
+    overflow: hidden;
+}
+
+.module-content {
+    background-color: var(--iriu-white);
+    padding: 20px;
 }
 
 .module-heading {
-    background: linear-gradient(135deg, var(--iriu-primary) 0%, var(--iriu-primary-light) 100%);
+    background: var(--iriu-navy);
     color: var(--iriu-white);
-    border-radius: var(--iriu-radius-md) var(--iriu-radius-md) 0 0;
-    padding: 12px 20px;
+    padding: 16px 20px;
     font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+    margin: 0;
+}
+
+.module-heading i {
+    margin-right: 8px;
+    opacity: 0.8;
 }
 
 .module-heading .action {
-    color: var(--iriu-secondary-light);
+    color: var(--iriu-teal-light);
 }
 
 .module-heading .action:hover {
@@ -234,107 +358,138 @@ body {
 }
 
 /* ============================================
-   Dataset List / Items
+   Dataset List / Items - Paris Card Style
    ============================================ */
 .dataset-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .dataset-item {
     background-color: var(--iriu-white);
     border: 1px solid var(--iriu-gray-200);
-    border-radius: var(--iriu-radius-md);
-    padding: 20px;
-    margin-bottom: 15px;
+    border-radius: var(--iriu-radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
     transition: var(--iriu-transition);
+    position: relative;
 }
 
 .dataset-item:hover {
-    box-shadow: var(--iriu-shadow-md);
-    border-color: var(--iriu-secondary);
+    box-shadow: var(--iriu-shadow-lg);
+    border-color: var(--iriu-teal);
     transform: translateY(-2px);
 }
 
+.dataset-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--iriu-teal);
+    border-radius: var(--iriu-radius-lg) 0 0 var(--iriu-radius-lg);
+    opacity: 0;
+    transition: var(--iriu-transition-fast);
+}
+
+.dataset-item:hover::before {
+    opacity: 1;
+}
+
+.dataset-item .dataset-heading {
+    margin-bottom: 8px;
+}
+
 .dataset-item .dataset-heading a {
-    color: var(--iriu-primary);
-    font-weight: 600;
-    font-size: 1.2em;
+    color: var(--iriu-navy);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.4;
 }
 
 .dataset-item .dataset-heading a:hover {
-    color: var(--iriu-accent);
-    text-decoration: none;
+    color: var(--iriu-teal-dark);
 }
 
 .dataset-item .notes {
-    color: var(--iriu-gray-700);
-    margin-top: 10px;
+    color: var(--iriu-gray-600);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 8px;
 }
 
 /* Dataset Resources */
 .dataset-resources {
-    margin-top: 15px;
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dataset-resources li {
+    list-style: none;
 }
 
 .dataset-resources li a {
     display: inline-flex;
     align-items: center;
     background-color: var(--iriu-gray-100);
-    border: 1px solid var(--iriu-gray-300);
+    border: 1px solid var(--iriu-gray-200);
     border-radius: var(--iriu-radius-sm);
-    padding: 5px 12px;
+    padding: 6px 12px;
     color: var(--iriu-gray-700);
-    font-size: 0.9em;
-    transition: var(--iriu-transition);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--iriu-transition-fast);
 }
 
 .dataset-resources li a:hover {
-    background-color: var(--iriu-secondary-light);
-    border-color: var(--iriu-secondary);
-    color: var(--iriu-primary-dark);
-    text-decoration: none;
+    background-color: var(--iriu-teal);
+    border-color: var(--iriu-teal);
+    color: var(--iriu-navy-dark);
 }
 
 /* ============================================
-   Tags
+   Tags - Paris Style Pills
    ============================================ */
 .tag-list .tag,
 .tag,
 a.tag {
-    background-color: var(--iriu-accent);
+    background-color: var(--iriu-navy);
     color: var(--iriu-white);
-    border-radius: var(--iriu-radius-lg);
-    padding: 4px 12px;
-    font-size: 0.85em;
-    font-weight: 500;
-    transition: var(--iriu-transition);
+    border-radius: var(--iriu-radius-xl);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: var(--iriu-transition-fast);
     display: inline-block;
-    margin: 2px;
+    margin: 3px;
     text-decoration: none;
 }
 
 .tag-list .tag:hover,
 .tag:hover,
 a.tag:hover {
-    background-color: var(--iriu-primary);
-    color: var(--iriu-white);
-    text-decoration: none;
+    background-color: var(--iriu-teal);
+    color: var(--iriu-navy-dark);
     transform: translateY(-1px);
-    box-shadow: var(--iriu-shadow-sm);
 }
 
-/* Tag Count */
 .tag .count {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    padding: 2px 6px;
-    margin-left: 5px;
-    font-size: 0.8em;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--iriu-radius-xl);
+    padding: 2px 8px;
+    margin-left: 6px;
+    font-size: 11px;
 }
 
 /* ============================================
-   Sidebar
+   Sidebar - Clean Paris Style
    ============================================ */
 .secondary {
     background-color: transparent;
@@ -342,74 +497,104 @@ a.tag:hover {
 
 .secondary .module {
     margin-bottom: 20px;
+    border-radius: var(--iriu-radius-lg);
 }
 
 .secondary .module-heading {
-    font-size: 0.95em;
+    font-size: 13px;
+    padding: 14px 18px;
+}
+
+.secondary .nav-simple {
+    padding: 0;
 }
 
 .secondary .nav-simple > li > a {
     color: var(--iriu-gray-700);
-    padding: 10px 15px;
+    padding: 12px 18px;
     border-left: 3px solid transparent;
-    transition: var(--iriu-transition);
+    transition: var(--iriu-transition-fast);
+    font-size: 14px;
 }
 
 .secondary .nav-simple > li > a:hover {
-    background-color: var(--iriu-gray-100);
-    border-left-color: var(--iriu-secondary);
-    color: var(--iriu-primary);
+    background-color: var(--iriu-gray-50);
+    border-left-color: var(--iriu-teal);
+    color: var(--iriu-navy);
 }
 
 .secondary .nav-simple > li.active > a {
     background-color: var(--iriu-gray-100);
-    border-left-color: var(--iriu-primary);
-    color: var(--iriu-primary);
+    border-left-color: var(--iriu-navy);
+    color: var(--iriu-navy);
     font-weight: 600;
 }
 
 /* ============================================
-   Footer
+   Footer - Paris Style
    ============================================ */
 .site-footer {
-    background: linear-gradient(135deg, var(--iriu-primary-dark) 0%, var(--iriu-primary) 100%);
+    background: var(--iriu-navy);
     color: var(--iriu-gray-300);
-    padding: 40px 0;
-    margin-top: 50px;
-    border-top: 4px solid var(--iriu-secondary);
+    padding: 60px 0 30px;
+    margin-top: 60px;
+}
+
+.site-footer h4 {
+    color: var(--iriu-white);
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .site-footer a {
-    color: var(--iriu-secondary-light);
+    color: var(--iriu-gray-300);
+    transition: var(--iriu-transition-fast);
 }
 
 .site-footer a:hover {
-    color: var(--iriu-white);
-    text-decoration: none;
+    color: var(--iriu-teal-light);
 }
 
 .site-footer .footer-links {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .site-footer .footer-links li {
-    display: inline-block;
-    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.site-footer .footer-links li a {
+    font-size: 14px;
+}
+
+.site-footer .footer-bottom {
+    border-top: 1px solid var(--iriu-navy-light);
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 13px;
+    color: var(--iriu-gray-400);
 }
 
 /* ============================================
-   Forms
+   Forms - Modern Style
    ============================================ */
 .form-control {
-    border-radius: var(--iriu-radius-sm);
-    border-color: var(--iriu-gray-300);
-    transition: var(--iriu-transition);
+    border-radius: var(--iriu-radius-md);
+    border: 2px solid var(--iriu-gray-200);
+    padding: 12px 16px;
+    font-size: 14px;
+    transition: var(--iriu-transition-fast);
 }
 
 .form-control:focus {
-    border-color: var(--iriu-secondary);
-    box-shadow: 0 0 0 3px rgba(87, 197, 182, 0.2);
+    border-color: var(--iriu-teal);
+    box-shadow: 0 0 0 3px rgba(91, 191, 179, 0.15);
+    outline: none;
 }
 
 /* ============================================
@@ -417,84 +602,126 @@ a.tag:hover {
    ============================================ */
 .breadcrumb {
     background-color: transparent;
-    padding: 10px 0;
+    padding: 16px 0;
+    margin-bottom: 20px;
+    font-size: 13px;
 }
 
 .breadcrumb > li > a {
-    color: var(--iriu-primary);
+    color: var(--iriu-gray-500);
+}
+
+.breadcrumb > li > a:hover {
+    color: var(--iriu-navy);
 }
 
 .breadcrumb > li.active {
-    color: var(--iriu-gray-600);
+    color: var(--iriu-navy);
+    font-weight: 600;
+}
+
+.breadcrumb > li + li::before {
+    color: var(--iriu-gray-400);
 }
 
 /* ============================================
-   Pagination
+   Pagination - Paris Style
    ============================================ */
 .pagination > li > a,
 .pagination > li > span {
-    color: var(--iriu-primary);
-    border-color: var(--iriu-gray-300);
-    transition: var(--iriu-transition);
+    color: var(--iriu-navy);
+    border: 1px solid var(--iriu-gray-200);
+    padding: 10px 16px;
+    margin: 0 2px;
+    border-radius: var(--iriu-radius-md);
+    transition: var(--iriu-transition-fast);
 }
 
 .pagination > li > a:hover {
-    background-color: var(--iriu-secondary-light);
-    border-color: var(--iriu-secondary);
-    color: var(--iriu-primary-dark);
+    background-color: var(--iriu-gray-100);
+    border-color: var(--iriu-navy);
+    color: var(--iriu-navy);
 }
 
 .pagination > .active > a,
 .pagination > .active > a:hover,
 .pagination > .active > span {
-    background-color: var(--iriu-primary);
-    border-color: var(--iriu-primary);
+    background-color: var(--iriu-navy);
+    border-color: var(--iriu-navy);
+    color: var(--iriu-white);
 }
 
 /* ============================================
-   Alerts
+   Alerts - Modern Style
    ============================================ */
+.alert {
+    border-radius: var(--iriu-radius-md);
+    border: none;
+    padding: 16px 20px;
+}
+
 .alert-info {
-    background-color: rgba(87, 197, 182, 0.15);
-    border-color: var(--iriu-secondary);
-    color: var(--iriu-primary-dark);
+    background-color: rgba(91, 191, 179, 0.1);
+    color: var(--iriu-navy);
+    border-left: 4px solid var(--iriu-teal);
 }
 
 .alert-success {
-    background-color: rgba(40, 167, 69, 0.15);
-    border-color: var(--iriu-success);
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #065f46;
+    border-left: 4px solid var(--iriu-success);
+}
+
+.alert-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #92400e;
+    border-left: 4px solid var(--iriu-warning);
+}
+
+.alert-danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #991b1b;
+    border-left: 4px solid var(--iriu-danger);
 }
 
 /* ============================================
-   Organization / Group Cards
+   Organization / Group Cards - Paris Grid
    ============================================ */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
 .media-grid .media-item {
     background-color: var(--iriu-white);
     border: 1px solid var(--iriu-gray-200);
-    border-radius: var(--iriu-radius-md);
+    border-radius: var(--iriu-radius-lg);
+    padding: 24px;
     transition: var(--iriu-transition);
-    padding: 20px;
 }
 
 .media-grid .media-item:hover {
-    box-shadow: var(--iriu-shadow-md);
-    border-color: var(--iriu-secondary);
+    box-shadow: var(--iriu-shadow-lg);
+    border-color: var(--iriu-teal);
+    transform: translateY(-3px);
 }
 
 .media-grid .media-item .media-heading a {
-    color: var(--iriu-primary);
-    font-weight: 600;
+    color: var(--iriu-navy);
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .media-grid .media-item .media-heading a:hover {
-    color: var(--iriu-accent);
+    color: var(--iriu-teal-dark);
 }
 
 /* ============================================
    Resource View
    ============================================ */
 .resource-view .module-heading {
-    background: var(--iriu-primary);
+    background: var(--iriu-navy);
 }
 
 .resource-actions .btn-group .btn {
@@ -505,70 +732,187 @@ a.tag:hover {
    Activity Stream
    ============================================ */
 .activity-stream .item {
-    border-left: 3px solid var(--iriu-secondary);
-    padding-left: 15px;
-    margin-bottom: 15px;
+    border-left: 3px solid var(--iriu-teal);
+    padding-left: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--iriu-gray-100);
+}
+
+.activity-stream .item:last-child {
+    border-bottom: none;
 }
 
 .activity-stream .item .actor a {
-    color: var(--iriu-primary);
-    font-weight: 600;
+    color: var(--iriu-navy);
+    font-weight: 700;
 }
 
 /* ============================================
-   Stats / Counters
+   Homepage Featured Section
    ============================================ */
-.stats {
-    text-align: center;
+.featured-section {
+    padding: 60px 0;
+    background: var(--iriu-gray-50);
 }
 
-.stats .stat {
-    padding: 20px;
+.featured-section h2 {
+    color: var(--iriu-navy);
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
-.stats .stat-value {
-    font-size: 2.5em;
+.featured-section .section-subtitle {
+    color: var(--iriu-gray-500);
+    margin-bottom: 40px;
+}
+
+/* ============================================
+   About Page Styles
+   ============================================ */
+.about-section {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--iriu-gray-200);
+}
+
+.about-section:last-child {
+    border-bottom: none;
+}
+
+.about-section h2 {
+    color: var(--iriu-navy);
     font-weight: 700;
-    color: var(--iriu-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.stats .stat-label {
+.about-section h2 i {
+    color: var(--iriu-teal);
+}
+
+.about-section p {
+    color: var(--iriu-gray-700);
+    line-height: 1.8;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--iriu-gray-100);
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li strong {
+    color: var(--iriu-navy);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    padding: 8px 0;
+}
+
+.contact-list li i {
+    color: var(--iriu-teal);
+    margin-right: 10px;
+    width: 20px;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.service-card {
+    background: var(--iriu-white);
+    border: 1px solid var(--iriu-gray-200);
+    border-radius: var(--iriu-radius-lg);
+    padding: 24px;
+    transition: var(--iriu-transition);
+}
+
+.service-card:hover {
+    box-shadow: var(--iriu-shadow-md);
+    border-color: var(--iriu-teal);
+}
+
+.service-card h4 {
+    color: var(--iriu-navy);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.service-card p {
     color: var(--iriu-gray-600);
-    text-transform: uppercase;
-    font-size: 0.85em;
-    letter-spacing: 1px;
+    font-size: 14px;
+    margin: 0;
 }
 
 /* ============================================
    Responsive Adjustments
    ============================================ */
-@media (max-width: 768px) {
-    .hero-unit,
-    .jumbotron {
-        padding: 30px 20px;
-    }
-
-    .hero-unit h1,
-    .jumbotron h1 {
-        font-size: 1.8em;
-    }
-
+@media (max-width: 992px) {
     .homepage .module-search {
-        padding: 40px 15px;
+        padding: 60px 20px;
+    }
+
+    .homepage .module-search h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .homepage .module-search {
+        padding: 50px 15px;
+    }
+
+    .homepage .module-search h1 {
+        font-size: 1.75rem;
+    }
+
+    .homepage .module-search .search-giant input {
+        padding: 14px 20px;
+        font-size: 14px;
     }
 
     .masthead .navigation {
         padding: 10px 0;
+    }
+
+    .stat-card .stat-value {
+        font-size: 2.5rem;
+    }
+
+    .site-footer {
+        padding: 40px 0 20px;
     }
 }
 
 /* ============================================
    Custom Animations
    ============================================ */
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -576,9 +920,18 @@ a.tag:hover {
     }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
 .dataset-item,
 .media-item {
-    animation: fadeIn 0.3s ease-out;
+    animation: fadeInUp 0.4s ease-out;
 }
 
 /* ============================================
@@ -594,10 +947,15 @@ a.tag:hover {
 
     body {
         background: white;
+        color: black;
     }
 
     .module {
         box-shadow: none;
         border: 1px solid #ccc;
+    }
+
+    a {
+        color: black;
     }
 }

@@ -6,37 +6,56 @@
     <div class="row">
       <div class="col-md-4">
         <h4>{{ _("IRIU DataHub") }}</h4>
-        <p>{{ _("Your centralized platform for discovering, sharing, and managing research data.") }}</p>
+        <p style="font-size: 14px; line-height: 1.7;">
+          {{ _("Open data platform of L'Institut de la Resilience et de l'Innovation Urbaine. Supporting municipalities and researchers in building climate-resilient communities.") }}
+        </p>
+        <div style="margin-top: 20px;">
+          <a href="https://www.iriu.ca" target="_blank" class="btn btn-sm" style="background: #5bbfb3; color: #1e2a4a; font-weight: 600;">
+            <i class="fa fa-external-link"></i> {{ _("Visit IRIU.ca") }}
+          </a>
+        </div>
       </div>
-      <div class="col-md-4">
-        <h4>{{ _("Quick Links") }}</h4>
+      <div class="col-md-2">
+        <h4>{{ _("Platform") }}</h4>
         <ul class="footer-links">
           <li><a href="{{ h.url_for('dataset.search') }}">{{ _("Datasets") }}</a></li>
           <li><a href="{{ h.url_for('organization.index') }}">{{ _("Organizations") }}</a></li>
           <li><a href="{{ h.url_for('group.index') }}">{{ _("Groups") }}</a></li>
-          <li><a href="{{ h.url_for('home.about') }}">{{ _("About") }}</a></li>
+          <li><a href="/api">{{ _("API") }}</a></li>
         </ul>
       </div>
-      <div class="col-md-4">
-        <h4>{{ _("Connect") }}</h4>
+      <div class="col-md-3">
+        <h4>{{ _("L'Atelier") }}</h4>
         <ul class="footer-links">
-          <li><a href="mailto:info@iriu.ca"><i class="fa fa-envelope"></i> {{ _("Contact Us") }}</a></li>
-          <li><a href="https://github.com/Farairiu/IRIU_DataHub" target="_blank"><i class="fa fa-github"></i> {{ _("GitHub") }}</a></li>
-          <li><a href="/api"><i class="fa fa-code"></i> {{ _("API") }}</a></li>
+          <li><a href="https://www.iriu.ca" target="_blank">La Boussole</a></li>
+          <li><a href="https://www.iriu.ca" target="_blank">Le Phare</a></li>
+          <li><a href="https://www.iriu.ca" target="_blank">Le Pole</a></li>
+          <li><a href="https://www.iriu.ca" target="_blank">L'Agora</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h4>{{ _("Contact") }}</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:info@iriu.ca"><i class="fa fa-envelope"></i> info@iriu.ca</a></li>
+          <li><a href="tel:+15149703343"><i class="fa fa-phone"></i> +1 514 970 3343</a></li>
+          <li><a href="https://github.com/Farairiu/IRIU_DataHub" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+          <li><a href="{{ h.url_for('home.about') }}"><i class="fa fa-info-circle"></i> {{ _("About") }}</a></li>
         </ul>
       </div>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-6">
-        <p class="text-muted">
-          &copy; {{ h.date_str_to_datetime(h.get_site_statistics().package_update_since or '').year if h.get_site_statistics().package_update_since else '2024' }} {{ _("IRIU Team. All rights reserved.") }}
-        </p>
-      </div>
-      <div class="col-md-6 text-right">
-        <p class="text-muted">
-          {{ _("Powered by") }} <a href="https://ckan.org" target="_blank">CKAN</a>
-        </p>
+    <div class="footer-bottom">
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            &copy; 2024 L'Institut de la Resilience et de l'Innovation Urbaine (IRIU)
+          </p>
+        </div>
+        <div class="col-md-6 text-right">
+          <p>
+            {{ _("Powered by") }} <a href="https://ckan.org" target="_blank">CKAN</a> |
+            {{ _("Part of the") }} <a href="https://www.iriu.ca" target="_blank">VILLE_IA</a> {{ _("Initiative") }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
