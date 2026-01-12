@@ -51,41 +51,40 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2>{{ _("Featured Datasets") }}</h2>
-          <p class="section-subtitle">{{ _("Explore our latest data collections supporting urban resilience and municipal innovation") }}</p>
+          <h2>{{ _("Explore Our Data") }}</h2>
+          <p class="section-subtitle">{{ _("Discover datasets supporting urban resilience and municipal innovation across Quebec") }}</p>
         </div>
       </div>
       <div class="row">
-        {% set search_results = h.get_action('package_search', {'rows': 4, 'sort': 'metadata_modified desc'}) %}
-        {% if search_results and search_results.results %}
-          {% for dataset in search_results.results %}
-          <div class="col-md-6 col-lg-3">
-            <div class="dataset-item" style="height: 100%;">
-              <h4 class="dataset-heading"><a href="{{ h.url_for('dataset.read', id=dataset.name) }}">{{ dataset.title }}</a></h4>
-              <p class="notes">{{ h.truncate(dataset.notes or _('No description available'), 100) }}</p>
-              {% if dataset.organization %}
-              <span class="tag" style="font-size: 11px;">{{ dataset.organization.title }}</span>
-              {% endif %}
-            </div>
+        <div class="col-md-4">
+          <div class="service-card" style="text-align: center; padding: 30px;">
+            <i class="fa fa-database" style="font-size: 48px; color: #5bbfb3; margin-bottom: 15px;"></i>
+            <h4>{{ _("Datasets") }}</h4>
+            <p>{{ _("Browse open datasets from municipalities, researchers, and partners.") }}</p>
+            <a href="{{ h.url_for('dataset.search') }}" class="btn btn-primary">
+              {{ _("Browse Datasets") }}
+            </a>
           </div>
-          {% endfor %}
-        {% else %}
-          <div class="col-md-12 text-center">
-            <div class="module-content" style="padding: 40px;">
-              <i class="fa fa-database" style="font-size: 48px; color: #cbd5e1; margin-bottom: 20px;"></i>
-              <p style="color: #64748b; font-size: 16px;">{{ _("No datasets available yet. Be the first to contribute!") }}</p>
-              <a href="{{ h.url_for('dataset.new') }}" class="btn btn-success" style="margin-top: 10px;">
-                <i class="fa fa-plus"></i> {{ _("Add Dataset") }}
-              </a>
-            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card" style="text-align: center; padding: 30px;">
+            <i class="fa fa-building" style="font-size: 48px; color: #5bbfb3; margin-bottom: 15px;"></i>
+            <h4>{{ _("Organizations") }}</h4>
+            <p>{{ _("Explore data publishers including cities, research institutes, and partners.") }}</p>
+            <a href="{{ h.url_for('organization.index') }}" class="btn btn-primary">
+              {{ _("View Organizations") }}
+            </a>
           </div>
-        {% endif %}
-      </div>
-      <div class="row" style="margin-top: 30px;">
-        <div class="col-md-12 text-center">
-          <a href="{{ h.url_for('dataset.search') }}" class="btn btn-primary btn-lg">
-            <i class="fa fa-search"></i> {{ _("Browse All Datasets") }}
-          </a>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card" style="text-align: center; padding: 30px;">
+            <i class="fa fa-tags" style="font-size: 48px; color: #5bbfb3; margin-bottom: 15px;"></i>
+            <h4>{{ _("Thematic Groups") }}</h4>
+            <p>{{ _("Find datasets organized by theme: climate, mobility, infrastructure, and more.") }}</p>
+            <a href="{{ h.url_for('group.index') }}" class="btn btn-primary">
+              {{ _("Explore Groups") }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
