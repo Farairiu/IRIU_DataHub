@@ -1,3 +1,4 @@
+import os
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
@@ -12,9 +13,11 @@ class IriuThemePlugin(plugins.SingletonPlugin):
     - Modified templates for header, footer, and homepage
     - Custom About page content
     - Styled tags and dataset displays
+    - Bilingual support (English and French)
     """
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.ITranslation)
 
     # IConfigurer
     def update_config(self, config_):
@@ -54,3 +57,16 @@ class IriuThemePlugin(plugins.SingletonPlugin):
     def get_featured_datasets_count():
         """Return the number of datasets to show on homepage."""
         return 4
+
+    # ITranslation
+    def i18n_directory(self):
+        """Return the path to the i18n directory."""
+        return os.path.join(os.path.dirname(__file__), 'i18n')
+
+    def i18n_locales(self):
+        """Return the list of locales this plugin supports."""
+        return ['fr']
+
+    def i18n_domain(self):
+        """Return the gettext domain for this plugin."""
+        return 'ckanext-iriu_theme'

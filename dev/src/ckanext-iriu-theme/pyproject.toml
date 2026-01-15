@@ -26,4 +26,4 @@ where = ["."]
 include = ["ckanext*"]
 
 [tool.setuptools.package-data]
-"*" = ["templates/*", "templates/**/*", "public/*", "public/**/*", "fanstatic/*"]
+"*" = ["templates/*", "templates/**/*", "public/*", "public/**/*", "fanstatic/*", "i18n/*", "i18n/**/*"]

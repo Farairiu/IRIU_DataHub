@@ -1,0 +1,300 @@
+# IRIU DataHub Theme - Translation Template
+# Copyright (C) 2024 L'Institut de la Resilience et de l'Innovation Urbaine
+# This file is distributed under the AGPL-3.0 license.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-iriu-theme 1.0.0\n"
+"Report-Msgid-Bugs-To: info@iriu.ca\n"
+"POT-Creation-Date: 2024-01-15 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/home/index.html
+msgid "Welcome"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Explore Open Data for Urban Resilience"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Discover datasets from municipalities, researchers, and partners across Quebec"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Datasets"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Organizations"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Thematic Groups"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Explore Our Data"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Discover datasets supporting urban resilience and municipal innovation across Quebec"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Browse open datasets from municipalities, researchers, and partners."
+msgstr ""
+
+#: templates/home/index.html
+msgid "Browse Datasets"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Explore data publishers including cities, research institutes, and partners."
+msgstr ""
+
+#: templates/home/index.html
+msgid "View Organizations"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Find datasets organized by theme: climate, mobility, infrastructure, and more."
+msgstr ""
+
+#: templates/home/index.html
+msgid "Explore Groups"
+msgstr ""
+
+#: templates/home/index.html
+msgid "About IRIU DataHub"
+msgstr ""
+
+#: templates/home/index.html
+msgid "IRIU DataHub is the open data platform of L'Institut de la Resilience et de l'Innovation Urbaine. We support municipalities, researchers, and partners in discovering, sharing, and collaborating on datasets that drive urban resilience and sustainable development."
+msgstr ""
+
+#: templates/home/index.html
+msgid "Our platform enables sovereign data governance with frugal, responsible approaches that respect local autonomy while fostering collaboration across Quebec's municipal ecosystem."
+msgstr ""
+
+#: templates/home/index.html
+msgid "Learn More"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Data Sovereignty"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Your data stays under your control with federated governance models."
+msgstr ""
+
+#: templates/home/index.html
+msgid "Collaboration"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Connect with municipalities, researchers, and partners across Quebec."
+msgstr ""
+
+#: templates/home/index.html
+msgid "AI-Ready"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Datasets structured for ethical AI applications in urban planning."
+msgstr ""
+
+#: templates/home/index.html
+msgid "Open APIs"
+msgstr ""
+
+#: templates/home/index.html
+msgid "Full programmatic access through comprehensive REST APIs."
+msgstr ""
+
+#: templates/home/about.html
+msgid "About"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Institut de la Resilience et de l'Innovation Urbaine"
+msgstr ""
+
+#: templates/home/about.html
+msgid "L'Institut de la Resilience et de l'Innovation Urbaine (IRIU) acts as a catalyst for local community resilience. We accompany local governments and community actors in strengthening organizational capacity during crises and beyond."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Our mission is to give municipalities and communities the space and time to plan tomorrow, through strategic planning, decision-support tools, and data governance solutions."
+msgstr ""
+
+#: templates/home/about.html
+msgid "About This Platform"
+msgstr ""
+
+#: templates/home/about.html
+msgid "IRIU DataHub is our open data platform designed to support municipalities, researchers, and partners in discovering, sharing, and collaborating on datasets. Built on CKAN, the world's leading open-source data management system, this platform enables:"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Sovereign Data Governance"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Federated data management with frugal, responsible approaches that respect local autonomy and privacy."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Municipal Collaboration"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Connect cities, researchers, and partners through shared data resources and collaborative tools."
+msgstr ""
+
+#: templates/home/about.html
+msgid "AI-Ready Infrastructure"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Datasets structured and documented to support ethical AI applications for urban resilience."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Open API Access"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Programmatic access to all public datasets through comprehensive REST APIs."
+msgstr ""
+
+#: templates/home/about.html
+msgid "L'Atelier - Our Services"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Through L'Atelier (The Workshop), we offer a suite of services to support municipal innovation:"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Strategic planning guidance for municipal projects and long-term resilience planning."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Decision-support tools and responsible AI solutions for evidence-based governance."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Data federation and governance frameworks for sovereign data management."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Project communities connecting cities, researchers, and innovation partners."
+msgstr ""
+
+#: templates/home/about.html
+msgid "VILLE_IA Initiative"
+msgstr ""
+
+#: templates/home/about.html
+msgid "IRIU leads VILLE_IA, Quebec's largest applied AI research program for municipalities. This groundbreaking initiative involves over 30 partners including IVADO, Polytechnique Montreal, and 12 pilot cities, all focused on building climate resilience through ethical AI applications."
+msgstr ""
+
+#: templates/home/about.html
+msgid "The program develops practical AI tools that help cities better understand climate risks, optimize resource allocation, and make data-driven decisions for sustainable urban development."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Contact Us"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Have questions about our data platform or services? We're here to help!"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Technical Information"
+msgstr ""
+
+#: templates/home/about.html
+msgid "IRIU DataHub is powered by CKAN, the world's leading open-source data portal platform used by governments and organizations worldwide. Our implementation includes custom extensions for bilingual support, enhanced data visualization, and integration with municipal systems."
+msgstr ""
+
+#: templates/home/about.html
+msgid "Learn more about CKAN"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Quick Links"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Groups"
+msgstr ""
+
+#: templates/home/about.html
+msgid "API Documentation"
+msgstr ""
+
+#: templates/home/about.html
+msgid "IRIU Website"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Platform Stats"
+msgstr ""
+
+#: templates/home/about.html
+msgid "Partners"
+msgstr ""
+
+#: templates/home/about.html
+msgid "IRIU collaborates with leading institutions including IVADO, Polytechnique Montreal, and municipalities across Quebec."
+msgstr ""
+
+#: templates/footer.html
+msgid "IRIU DataHub"
+msgstr ""
+
+#: templates/footer.html
+msgid "Open data platform of L'Institut de la Resilience et de l'Innovation Urbaine. Supporting municipalities and researchers in building climate-resilient communities."
+msgstr ""
+
+#: templates/footer.html
+msgid "Visit IRIU.ca"
+msgstr ""
+
+#: templates/footer.html
+msgid "Platform"
+msgstr ""
+
+#: templates/footer.html
+msgid "API"
+msgstr ""
+
+#: templates/footer.html
+msgid "L'Atelier"
+msgstr ""
+
+#: templates/footer.html
+msgid "Contact"
+msgstr ""
+
+#: templates/footer.html
+msgid "Powered by"
+msgstr ""
+
+#: templates/footer.html
+msgid "Part of the"
+msgstr ""
+
+#: templates/footer.html
+msgid "Initiative"
+msgstr ""
