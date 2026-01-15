@@ -3,6 +3,9 @@ FROM ckan/ckan-base:2.11
 # Install any extensions needed by your CKAN instance
 # See Dockerfile.dev for more details and examples
 
+# Install IRIU Custom Theme
+RUN pip3 install git+https://github.com/Farairiu/IRIU_DataHub.git@dev/ui-customization#subdirectory=dev/src/ckanext-iriu-theme
+
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
