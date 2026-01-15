@@ -2,24 +2,15 @@
 
 {% block header_account_container_content %}
   {{ super() }}
-  {# Language Switcher #}
+  {# Language Switcher - EN/FR toggle #}
   <nav class="lang-switcher" aria-label="{{ _('Language') }}">
     {% set current_locale = h.lang() %}
-    {% set locales_offered = h.config_option_value('ckan.locales_offered') %}
-    {% if locales_offered %}
-      {% for locale in locales_offered.split() %}
-        {% if locale == current_locale %}
-          <span class="lang-btn lang-active" title="{{ _('Current language') }}">
-            {% if locale == 'en' %}EN{% elif locale == 'fr' %}FR{% else %}{{ locale|upper }}{% endif %}
-          </span>
-        {% else %}
-          <a href="{{ h.url_for(request.endpoint, locale=locale, **request.view_args) }}"
-             class="lang-btn"
-             title="{% if locale == 'en' %}English{% elif locale == 'fr' %}Français{% else %}{{ locale }}{% endif %}">
-            {% if locale == 'en' %}EN{% elif locale == 'fr' %}FR{% else %}{{ locale|upper }}{% endif %}
-          </a>
-        {% endif %}
-      {% endfor %}
+    {% if current_locale == 'fr' %}
+      <a href="/en{{ request.path[3:] if request.path.startswith('/fr') else request.path }}" class="lang-btn" title="English">EN</a>
+      <span class="lang-btn lang-active" title="{{ _('Current language') }}">FR</span>
+    {% else %}
+      <span class="lang-btn lang-active" title="{{ _('Current language') }}">EN</span>
+      <a href="/fr{{ request.path }}" class="lang-btn" title="Français">FR</a>
     {% endif %}
   </nav>
 {% endblock %}
