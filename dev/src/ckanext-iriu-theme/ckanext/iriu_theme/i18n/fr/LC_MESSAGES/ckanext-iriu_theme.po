@@ -26,7 +26,7 @@ msgstr "Explorez les données ouvertes pour la résilience urbaine"
 
 #: templates/home/index.html
 msgid "Discover datasets from municipalities, researchers, and partners across Quebec"
-msgstr "Découvrez des jeux de données provenant des municipalités, chercheurs et partenaires à travers le Québec"
+msgstr "Découvrez des jeux de données provenant des municipalités, des chercheur·euse·s et des partenaires à travers le Québec."
 
 #: templates/home/index.html
 msgid "Datasets"
@@ -46,11 +46,11 @@ msgstr "Explorez nos données"
 
 #: templates/home/index.html
 msgid "Discover datasets supporting urban resilience and municipal innovation across Quebec"
-msgstr "Découvrez des jeux de données soutenant la résilience urbaine et l'innovation municipale à travers le Québec"
+msgstr "Découvrez des jeux de données soutenant la résilience urbaine et l'innovation municipale à travers le Québec."
 
 #: templates/home/index.html
 msgid "Browse open datasets from municipalities, researchers, and partners."
-msgstr "Parcourez les jeux de données ouverts des municipalités, chercheurs et partenaires."
+msgstr "Parcourez les jeux de données ouverts des municipalités, des chercheur·euse·s et des partenaires."
 
 #: templates/home/index.html
 msgid "Browse Datasets"
@@ -58,7 +58,7 @@ msgstr "Parcourir les données"
 
 #: templates/home/index.html
 msgid "Explore data publishers including cities, research institutes, and partners."
-msgstr "Explorez les éditeurs de données incluant les villes, instituts de recherche et partenaires."
+msgstr "Explorez les éditeur·rice·s de données, incluant les villes, les instituts de recherche et les partenaires."
 
 #: templates/home/index.html
 msgid "View Organizations"
@@ -66,7 +66,7 @@ msgstr "Voir les organisations"
 
 #: templates/home/index.html
 msgid "Find datasets organized by theme: climate, mobility, infrastructure, and more."
-msgstr "Trouvez des jeux de données organisés par thème: climat, mobilité, infrastructure et plus encore."
+msgstr "Trouvez des jeux de données organisés par thème : climat, mobilité, infrastructures et plus encore."
 
 #: templates/home/index.html
 msgid "Explore Groups"
@@ -78,11 +78,11 @@ msgstr "À propos d'IRIU DataHub"
 
 #: templates/home/index.html
 msgid "IRIU DataHub is the open data platform of L'Institut de la Resilience et de l'Innovation Urbaine. We support municipalities, researchers, and partners in discovering, sharing, and collaborating on datasets that drive urban resilience and sustainable development."
-msgstr "IRIU DataHub est la plateforme de données ouvertes de L'Institut de la Résilience et de l'Innovation Urbaine. Nous soutenons les municipalités, chercheurs et partenaires dans la découverte, le partage et la collaboration sur des jeux de données qui favorisent la résilience urbaine et le développement durable."
+msgstr "IRIU DataHub est la plateforme de données ouvertes de l'Institut de la Résilience et de l'Innovation Urbaine. Nous soutenons les municipalités, les chercheur·euse·s et les partenaires dans la découverte, le partage et la collaboration autour de jeux de données qui favorisent la résilience urbaine et le développement durable."
 
 #: templates/home/index.html
 msgid "Our platform enables sovereign data governance with frugal, responsible approaches that respect local autonomy while fostering collaboration across Quebec's municipal ecosystem."
-msgstr "Notre plateforme permet une gouvernance souveraine des données avec des approches frugales et responsables qui respectent l'autonomie locale tout en favorisant la collaboration à travers l'écosystème municipal du Québec."
+msgstr "Notre plateforme permet une gouvernance souveraine des données, avec des approches frugales et responsables qui respectent l'autonomie locale tout en favorisant la collaboration à travers l'écosystème municipal du Québec."
 
 #: templates/home/index.html
 msgid "Learn More"
@@ -94,7 +94,7 @@ msgstr "Souveraineté des données"
 
 #: templates/home/index.html
 msgid "Your data stays under your control with federated governance models."
-msgstr "Vos données restent sous votre contrôle avec des modèles de gouvernance fédérée."
+msgstr "Vos données restent sous votre contrôle grâce à des modèles de gouvernance fédérée."
 
 #: templates/home/index.html
 msgid "Collaboration"
@@ -102,7 +102,7 @@ msgstr "Collaboration"
 
 #: templates/home/index.html
 msgid "Connect with municipalities, researchers, and partners across Quebec."
-msgstr "Connectez-vous avec les municipalités, chercheurs et partenaires à travers le Québec."
+msgstr "Connectez-vous avec des municipalités, des chercheur·euse·s et des partenaires à travers le Québec."
 
 #: templates/home/index.html
 msgid "AI-Ready"
@@ -142,7 +142,7 @@ msgstr "À propos de cette plateforme"
 
 #: templates/home/about.html
 msgid "IRIU DataHub is our open data platform designed to support municipalities, researchers, and partners in discovering, sharing, and collaborating on datasets. Built on CKAN, the world's leading open-source data management system, this platform enables:"
-msgstr "IRIU DataHub est notre plateforme de données ouvertes conçue pour soutenir les municipalités, chercheurs et partenaires dans la découverte, le partage et la collaboration sur des jeux de données. Construite sur CKAN, le système de gestion de données open source leader mondial, cette plateforme permet:"
+msgstr "IRIU DataHub est notre plateforme de données ouvertes conçue pour soutenir les municipalités, les chercheur·euse·s et les partenaires dans la découverte, le partage et la collaboration autour de jeux de données. Construite sur CKAN, le système de gestion de données open source leader mondial, cette plateforme permet :"
 
 #: templates/home/about.html
 msgid "Sovereign Data Governance"
@@ -158,7 +158,7 @@ msgstr "Collaboration municipale"
 
 #: templates/home/about.html
 msgid "Connect cities, researchers, and partners through shared data resources and collaborative tools."
-msgstr "Connectez les villes, chercheurs et partenaires à travers des ressources de données partagées et des outils collaboratifs."
+msgstr "Connectez les villes, les chercheur·euse·s et les partenaires à travers des ressources de données partagées et des outils collaboratifs."
 
 #: templates/home/about.html
 msgid "AI-Ready Infrastructure"
@@ -182,7 +182,7 @@ msgstr "L'Atelier - Nos services"
 
 #: templates/home/about.html
 msgid "Through L'Atelier (The Workshop), we offer a suite of services to support municipal innovation:"
-msgstr "À travers L'Atelier, nous offrons une gamme de services pour soutenir l'innovation municipale:"
+msgstr "À travers L'Atelier, nous offrons une gamme de services pour soutenir l'innovation municipale :"
 
 #: templates/home/about.html
 msgid "Strategic planning guidance for municipal projects and long-term resilience planning."
@@ -198,7 +198,7 @@ msgstr "Fédération de données et cadres de gouvernance pour une gestion souve
 
 #: templates/home/about.html
 msgid "Project communities connecting cities, researchers, and innovation partners."
-msgstr "Communautés de projets connectant les villes, chercheurs et partenaires d'innovation."
+msgstr "Communautés de projets connectant les villes, les chercheur·euse·s et les partenaires d'innovation."
 
 #: templates/home/about.html
 msgid "VILLE_IA Initiative"
@@ -218,7 +218,7 @@ msgstr "Contactez-nous"
 
 #: templates/home/about.html
 msgid "Have questions about our data platform or services? We're here to help!"
-msgstr "Des questions sur notre plateforme de données ou nos services? Nous sommes là pour vous aider!"
+msgstr "Des questions sur notre plateforme de données ou nos services ? Nous sommes là pour vous aider !"
 
 #: templates/home/about.html
 msgid "Technical Information"
@@ -266,7 +266,7 @@ msgstr "IRIU DataHub"
 
 #: templates/footer.html
 msgid "Open data platform of L'Institut de la Resilience et de l'Innovation Urbaine. Supporting municipalities and researchers in building climate-resilient communities."
-msgstr "Plateforme de données ouvertes de L'Institut de la Résilience et de l'Innovation Urbaine. Soutenir les municipalités et les chercheurs dans la construction de communautés résilientes au climat."
+msgstr "Plateforme de données ouvertes de l'Institut de la Résilience et de l'Innovation Urbaine. Soutenir les municipalités et les chercheur·euse·s dans la construction de communautés résilientes au climat."
 
 #: templates/footer.html
 msgid "Visit IRIU.ca"
