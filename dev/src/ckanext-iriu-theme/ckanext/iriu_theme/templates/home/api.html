@@ -1,0 +1,349 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _("API Documentation") }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('API'), named_route='home.api' %}</li>
+{% endblock %}
+
+{% block primary_content %}
+<article class="module">
+  <div class="module-content">
+    <h1><i class="fa fa-code"></i> API Documentation</h1>
+
+    <section class="about-section">
+      <h2>Introduction</h2>
+      <p>
+        IRIU DataHub provides a comprehensive REST API based on <a href="https://docs.ckan.org/en/latest/api/" target="_blank">CKAN's Action API</a>.
+        This API allows you to programmatically access all public datasets, metadata, organizations, and groups.
+      </p>
+      <p><strong>Base URL:</strong> <code>https://donnees.iriu.ca/api/3/action/</code></p>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-download"></i> Quick Start - Download All Datasets</h2>
+
+      <h3>Python Example</h3>
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>import requests
+import json
+
+BASE_URL = "https://donnees.iriu.ca/api/3/action"
+
+# 1. Get list of all datasets
+response = requests.get(f"{BASE_URL}/package_list")
+datasets = response.json()["result"]
+print(f"Found {len(datasets)} datasets")
+
+# 2. Get metadata for a specific dataset
+dataset_id = datasets[0]  # First dataset
+response = requests.get(f"{BASE_URL}/package_show", params={"id": dataset_id})
+metadata = response.json()["result"]
+
+print(f"Title: {metadata['title']}")
+print(f"Description: {metadata.get('notes', 'N/A')}")
+print(f"Organization: {metadata['organization']['title']}")
+
+# 3. Download resources (data files)
+for resource in metadata["resources"]:
+    print(f"Resource: {resource['name']}")
+    print(f"Format: {resource['format']}")
+    print(f"URL: {resource['url']}")
+</code></pre>
+
+      <h3>Download All Metadata to JSON</h3>
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>import requests
+import json
+
+BASE_URL = "https://donnees.iriu.ca/api/3/action"
+
+# Get all datasets with full metadata
+response = requests.get(f"{BASE_URL}/package_search", params={"rows": 10000})
+all_datasets = response.json()["result"]["results"]
+
+# Save to file
+with open("iriu_datasets_metadata.json", "w", encoding="utf-8") as f:
+    json.dump(all_datasets, f, ensure_ascii=False, indent=2)
+
+print(f"Saved {len(all_datasets)} datasets to iriu_datasets_metadata.json")
+</code></pre>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-list"></i> Common API Endpoints</h2>
+
+      <table class="table table-striped" style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>List all datasets</strong></td>
+            <td><code>/api/3/action/package_list</code></td>
+            <td>Returns list of all dataset IDs</td>
+          </tr>
+          <tr>
+            <td><strong>Search datasets</strong></td>
+            <td><code>/api/3/action/package_search?q=climate</code></td>
+            <td>Search datasets by keyword</td>
+          </tr>
+          <tr>
+            <td><strong>Get dataset details</strong></td>
+            <td><code>/api/3/action/package_show?id={id}</code></td>
+            <td>Get full metadata for a dataset</td>
+          </tr>
+          <tr>
+            <td><strong>List organizations</strong></td>
+            <td><code>/api/3/action/organization_list</code></td>
+            <td>Returns list of all organizations</td>
+          </tr>
+          <tr>
+            <td><strong>Get organization details</strong></td>
+            <td><code>/api/3/action/organization_show?id={id}</code></td>
+            <td>Get organization info and datasets</td>
+          </tr>
+          <tr>
+            <td><strong>List groups</strong></td>
+            <td><code>/api/3/action/group_list</code></td>
+            <td>Returns list of thematic groups</td>
+          </tr>
+          <tr>
+            <td><strong>Get group details</strong></td>
+            <td><code>/api/3/action/group_show?id={id}</code></td>
+            <td>Get group info and datasets</td>
+          </tr>
+          <tr>
+            <td><strong>List tags</strong></td>
+            <td><code>/api/3/action/tag_list</code></td>
+            <td>Returns list of all tags</td>
+          </tr>
+          <tr>
+            <td><strong>Site statistics</strong></td>
+            <td><code>/api/3/action/site_read</code></td>
+            <td>Get site statistics</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-search"></i> Advanced Search</h2>
+
+      <h3>Search Parameters</h3>
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code># Search with filters
+/api/3/action/package_search?q=transport&rows=100&start=0
+
+# Filter by organization
+/api/3/action/package_search?fq=organization:ville-de-montreal
+
+# Filter by tag
+/api/3/action/package_search?fq=tags:climate
+
+# Filter by format
+/api/3/action/package_search?fq=res_format:CSV
+
+# Combine filters
+/api/3/action/package_search?q=eau&fq=organization:ville-de-quebec+tags:environment
+</code></pre>
+
+      <h3>Python - Advanced Search Example</h3>
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>import requests
+
+BASE_URL = "https://donnees.iriu.ca/api/3/action"
+
+# Search for climate-related datasets with CSV files
+params = {
+    "q": "climat OR climate OR température",
+    "fq": "res_format:CSV",
+    "rows": 100,
+    "start": 0
+}
+
+response = requests.get(f"{BASE_URL}/package_search", params=params)
+results = response.json()["result"]
+
+print(f"Found {results['count']} datasets")
+for dataset in results["results"]:
+    print(f"- {dataset['title']}")
+</code></pre>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-database"></i> DataStore API</h2>
+      <p>For datasets with DataStore enabled, you can query the data directly:</p>
+
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code># Get data from a resource
+/api/3/action/datastore_search?resource_id={resource_id}
+
+# With filters and limits
+/api/3/action/datastore_search?resource_id={id}&limit=100&offset=0
+
+# SQL query (if enabled)
+/api/3/action/datastore_search_sql?sql=SELECT * FROM "{resource_id}" LIMIT 10
+</code></pre>
+
+      <h3>Python - Download DataStore Data</h3>
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>import requests
+import pandas as pd
+
+BASE_URL = "https://donnees.iriu.ca/api/3/action"
+
+# Get resource data from DataStore
+resource_id = "your-resource-id-here"
+response = requests.get(
+    f"{BASE_URL}/datastore_search",
+    params={"resource_id": resource_id, "limit": 1000}
+)
+
+data = response.json()["result"]
+records = data["records"]
+
+# Convert to pandas DataFrame
+df = pd.DataFrame(records)
+print(df.head())
+
+# Save to CSV
+df.to_csv("dataset.csv", index=False)
+</code></pre>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-file-code-o"></i> Complete Download Script</h2>
+      <p>Here's a complete Python script to download all datasets and their resources:</p>
+
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code>"""
+IRIU DataHub - Complete Dataset Downloader
+Downloads all datasets metadata and resource files
+"""
+
+import requests
+import json
+import os
+from pathlib import Path
+from tqdm import tqdm  # pip install tqdm
+
+BASE_URL = "https://donnees.iriu.ca/api/3/action"
+OUTPUT_DIR = Path("iriu_data")
+
+def get_all_datasets():
+    """Fetch all datasets with full metadata"""
+    response = requests.get(f"{BASE_URL}/package_search", params={"rows": 10000})
+    return response.json()["result"]["results"]
+
+def download_resource(url, filepath):
+    """Download a resource file"""
+    try:
+        response = requests.get(url, stream=True, timeout=30)
+        response.raise_for_status()
+        with open(filepath, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        return True
+    except Exception as e:
+        print(f"Error downloading {url}: {e}")
+        return False
+
+def main():
+    # Create output directory
+    OUTPUT_DIR.mkdir(exist_ok=True)
+
+    # Get all datasets
+    print("Fetching all datasets...")
+    datasets = get_all_datasets()
+    print(f"Found {len(datasets)} datasets")
+
+    # Save metadata
+    metadata_file = OUTPUT_DIR / "all_metadata.json"
+    with open(metadata_file, "w", encoding="utf-8") as f:
+        json.dump(datasets, f, ensure_ascii=False, indent=2)
+    print(f"Saved metadata to {metadata_file}")
+
+    # Download resources (optional - can be large!)
+    download_files = input("Download all resource files? (y/n): ").lower() == 'y'
+
+    if download_files:
+        resources_dir = OUTPUT_DIR / "resources"
+        resources_dir.mkdir(exist_ok=True)
+
+        for dataset in tqdm(datasets, desc="Downloading"):
+            dataset_dir = resources_dir / dataset["name"]
+            dataset_dir.mkdir(exist_ok=True)
+
+            for resource in dataset.get("resources", []):
+                if resource.get("url"):
+                    ext = resource.get("format", "dat").lower()
+                    filename = f"{resource['id']}.{ext}"
+                    filepath = dataset_dir / filename
+
+                    if not filepath.exists():
+                        download_resource(resource["url"], filepath)
+
+    print("Done!")
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-terminal"></i> cURL Examples</h2>
+      <pre style="background: #1e2a4a; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto;"><code># List all datasets
+curl "https://donnees.iriu.ca/api/3/action/package_list"
+
+# Get dataset metadata
+curl "https://donnees.iriu.ca/api/3/action/package_show?id=DATASET_ID"
+
+# Search datasets
+curl "https://donnees.iriu.ca/api/3/action/package_search?q=transport&rows=10"
+
+# Get all organizations
+curl "https://donnees.iriu.ca/api/3/action/organization_list?all_fields=true"
+</code></pre>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-book"></i> Additional Resources</h2>
+      <ul>
+        <li><a href="https://docs.ckan.org/en/latest/api/" target="_blank"><i class="fa fa-external-link"></i> Official CKAN API Documentation</a></li>
+        <li><a href="https://docs.ckan.org/en/latest/maintaining/datastore.html" target="_blank"><i class="fa fa-external-link"></i> DataStore Documentation</a></li>
+        <li><a href="https://github.com/ckan/ckanapi" target="_blank"><i class="fa fa-github"></i> ckanapi Python Library</a></li>
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2><i class="fa fa-question-circle"></i> Need Help?</h2>
+      <p>If you have questions about the API or need assistance:</p>
+      <ul>
+        <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@iriu.ca">info@iriu.ca</a></li>
+        <li><i class="fa fa-github"></i> GitHub: <a href="https://github.com/Farairiu/IRIU_DataHub/issues" target="_blank">Open an issue</a></li>
+      </ul>
+    </section>
+  </div>
+</article>
+{% endblock %}
+
+{% block secondary_content %}
+<div class="module module-narrow">
+  <h2 class="module-heading"><i class="fa fa-bolt"></i> Try It Now</h2>
+  <div class="module-content">
+    <ul class="nav nav-simple">
+      <li><a href="/api/3/action/package_list" target="_blank"><i class="fa fa-list"></i> List Datasets</a></li>
+      <li><a href="/api/3/action/organization_list" target="_blank"><i class="fa fa-building"></i> List Organizations</a></li>
+      <li><a href="/api/3/action/group_list" target="_blank"><i class="fa fa-users"></i> List Groups</a></li>
+      <li><a href="/api/3/action/tag_list" target="_blank"><i class="fa fa-tags"></i> List Tags</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="module module-narrow">
+  <h2 class="module-heading"><i class="fa fa-info-circle"></i> API Info</h2>
+  <div class="module-content">
+    <p style="font-size: 13px;"><strong>Version:</strong> CKAN API v3</p>
+    <p style="font-size: 13px;"><strong>Format:</strong> JSON</p>
+    <p style="font-size: 13px;"><strong>Authentication:</strong> Not required for read operations</p>
+  </div>
+</div>
+{% endblock %}

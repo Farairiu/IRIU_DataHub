@@ -1,6 +1,7 @@
 import os
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from flask import Blueprint
 
 
 class IriuThemePlugin(plugins.SingletonPlugin):
@@ -12,12 +13,14 @@ class IriuThemePlugin(plugins.SingletonPlugin):
     - Custom color scheme
     - Modified templates for header, footer, and homepage
     - Custom About page content
+    - API documentation page
     - Styled tags and dataset displays
     - Bilingual support (English and French)
     """
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.ITranslation)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
     def update_config(self, config_):
@@ -70,3 +73,14 @@ class IriuThemePlugin(plugins.SingletonPlugin):
     def i18n_domain(self):
         """Return the gettext domain for this plugin."""
         return 'ckanext-iriu_theme'
+
+    # IBlueprint
+    def get_blueprint(self):
+        """Return a Flask Blueprint for custom routes."""
+        blueprint = Blueprint('iriu_theme', self.__module__)
+
+        @blueprint.route('/api-docs')
+        def api_docs():
+            return toolkit.render('home/api.html')
+
+        return blueprint
