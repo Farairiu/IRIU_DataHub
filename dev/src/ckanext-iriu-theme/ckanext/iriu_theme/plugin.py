@@ -79,7 +79,7 @@ class IriuThemePlugin(plugins.SingletonPlugin):
         """Return a Flask Blueprint for custom routes."""
         blueprint = Blueprint('iriu_theme', self.__module__)
 
-        @blueprint.route('/api-docs')
+        @blueprint.route('/api')
         def api_docs():
             return toolkit.render('home/api.html')
 
